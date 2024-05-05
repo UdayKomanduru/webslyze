@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Purchase - Slyze</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            /* Ensures padding applies within borders */
+        }
+
+        td,
+        th {
+            padding: 10px;
+            /* Example padding value */
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            /*background-color: #eafae1;*/
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eafae1;
+            /* Smooth and light green background color */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            /* White background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            /* Blue button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            /* Darker blue on hover */
+        }
+
+        .postal-code {
+            width: 50%;
+        }
+    </style>
+    <script>
+        var messagetext;
+        messagetext = "Your Order for Today: \n"
+        function submitToWhatsApp() {
+            // Get name and phone number
+            var name = document.getElementById('name').value.trim();
+            var phoneNumber = document.getElementById('phone').value.trim();
+            // Add address details to the message
+            var flatNumber = document.getElementById('flat').value.trim();
+            var streetAddress = document.getElementById('street-address').value.trim();
+            var landmark = document.getElementById('landmark').value.trim();
+            messagetext += "Address:\n";
+            messagetext += "Flat/House Number: " + flatNumber + "\n";
+            messagetext += "Street Address: " + streetAddress + "\n";
+            
+
+            // Get Delivery Slot details                        
+            const deltab = document.getElementById("delslot");
+            //Read Delivery Slot selected by User  
+            const delcell = deltab.rows[0].cells[1];
+            const delslot = delcell.childNodes[1].value;
+            messagetext = messagetext + "\n" + "Your Delivery Slot: " + delslot;
+            messagetext = messagetext.replace(/^\s*\n/gm, "");
+
+            // Validate name and phone number
+            /*if (name === '' || phoneNumber === '') {
+                alert('Please enter your name and phone number.');
+                return;
+            }*/
+
+            //Get selected vegetables with cut type
+            /*var selectedVegetables = [];
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                var vegetableName = checkbox.value;
+
+                var cutType = document.getElementById(checkbox.id + '_cut').value;
+                selectedVegetables.push(vegetableName + ' (' + cutType + ')');
+            });
+
+           // Check if any vegetable is selected
+            if (selectedVegetables.length === 0) {
+                alert('Please select at least one vegetable.');
+                return;
+            }*/
+
+            // Construct pre-filled message with selected vegetables, name, and phone number
+            //message = encodeURIComponent("Hello, my name is " + name + ". My phone number is " + phoneNumber + ". I'd like to order the following vegetables: " + selectedVegetables.join(', '));
+            messagetext = encodeURIComponent("Hello, my name is " + name + ". My phone number is " + phoneNumber + ". I'd like to order the following vegetables: " + messagetext);
+            // Construct WhatsApp link with pre-filled message
+            var whatsappLink = "https://wa.me/919176693332?text=" + messagetext; // Replace 'whatsappphonenumber' with actual phone number
+
+            // Redirect to WhatsApp
+            window.location.href = whatsappLink;
+        }
+
+
+
+        function addVegetable(curbutton) {
+            // Get Current Button Row ID in the table    
+            var currow = curbutton.parentNode.parentNode.rowIndex;
+
+            // Get Details from the table for the current row
+            const table = document.getElementById("veglist");
+
+            // Read Quanaity selected by the user   
+            const qtycell = table.rows[currow].cells[3];
+            const qty = qtycell.childNodes[1].value;
+
+            // Add details to the order only when the quantity is non-zero   
+            if (qty != "0") {
+                //get vegetable name    
+                const vegcell = table.rows[currow].cells[0];
+                const vegname = vegcell.innerText;
+
+                //get style
+                const stylecell = table.rows[currow].cells[4];
+                const vegstyle = stylecell.childNodes[1].value;
+
+                // Check whether we need to add/remove from cart
+                var title = curbutton.innerText;
+                if (title == "Add to Cart") {
+                    // concatenate the values and add it to final message
+                    let curItem = vegname + "  " + vegstyle + "  " + qty;
+                    messagetext = messagetext + curItem;
+                    curbutton.innerText = "Remove from Cart";
+                    alert(messagetext);
+                }
+                else if (title == "Remove from Cart") {
+                    // concatenate the values and add it to final message
+                    let remItem = vegname + "  " + vegstyle + "  " + qty;
+                    messagetext = messagetext.replace(remItem, "");
+                    curbutton.innerText = "Add to Cart";
+                    alert(messagetext);
+                }
+
+            }
+            else {
+                alert("Select required quantity and Add to cart");
+            }
+          curbutton.addEventListener('click',function(event){
+            event.preventDefault();
+          }); 
+      
+                 
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-family='Verdana' font-size='35' fill='blue'%3ESlyze%3C/text%3E%3C/svg%3E" alt="Slyze Logo"> -->
+    </header>
+    <div class="container">
+        <h1>Vegetable Purchase</h1>
+        <p>Please enter your Name, phone number & Address. Select the vegetables, Required Quantity and Chopping Style:
+        </p>
+
+        <form onsubmit="return false">
+        <Table id="delslot">
+            <tr>
+                <td>
+                    <label for="slot">Delivery Slot</label>
+                </td>
+                <td>
+                    <select id="delslot" required>
+                        <option value="6:00 AM to 7:00 AM">6:00 AM to 7:00 AM</option>
+                        <option value="7:00 AM to 8:00 AM">7:00 AM to 8:00 AM</option>
+                        <option value="8:00 AM to 9:00 AM" default>8:00 AM to 9:00 AM</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Name:</label>
+                </td>
+                <td>
+                    <input type="text" id="name" name="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="phone">Phone Number:</label>
+                </td>
+                <td>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="address">Full Address:</label>
+                </td>
+                <td>
+                    <main>
+                        <div class="wrapper">
+                            <form>
+                                <div>
+                                    <label for="flat">Flat/House Number</label>
+                                    <input required type="text" id="flat" name="flat" autocomplete="name"
+                                        enterkeyhint="next">
+                                </div>
+                                <div>
+                                    <label for="street-address">Street address</label>
+                                    <input type="text" id="street-address" name="street-address"
+                                        autocomplete="street-address" required enterkeyhint="next"></input>
+
+                                </div>
+                                <div>
+                                    <label for="landmark">landmark (optional)</label>
+                                    <input class="postal-code" id="landmark" name="landmark"
+                                        autocomplete="landmark" enterkeyhint="next">
+                                </div>
+                    </main>
+                </td>
+            </tr>
+        </Table>
+        <!-- <label>Vegetables:</label><br>
+            <input type="checkbox" id="vegetable1" name="vegetable" value="Carrot"> -->
+        <Table id="veglist" border="1">
+            <tr>
+                <td>Vegetable</td>
+                <td>Weight</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Style</td>
+                <td>Cart</td>
+            </tr>
+            <tr cellSpacing=20>
+                <td>
+                    <label>Carrot</label>
+                </td>
+                <td>
+                    <label>200Gms</label>
+                </td>
+                <td>
+                    <label>Rs.40</label>
+                </td>
+                <td>
+                    <select id="vegetable1_qty" title="Quantity">
+                        <label for="quantity">
+                            <option value="0">-</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </label>
+                    </select>
+                </td>
+                <td>
+                    <select id="vegetable1_cut" title="Style">
+                        <option value="Whole">Whole</option>
+                        <option value="Sliced">Sliced</option>
+                        <option value="Chopped">Chopped</option>
+                    </select>
+                </td>
+                <td>
+                    <button id="add_veg1" onclick="addVegetable(this)">Add to Cart</button>
+                </td>
+            </tr>
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Beetroot - Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.45</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Beetroot_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Beetroot_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+<option value="Grated">Grated</option>
+
+<option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Beetroot" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Bitter Gourd</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.45</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Bitter_Gourd_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Bitter_Gourd_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+                       </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Bitter_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Bottle Gourd - Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.38</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Bottle_Gourd _qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Bottle_Gourd _cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+</select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Bottle_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Broad Beans</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.48</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Broad_Beans_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Broad_Beans_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Broad_Beans" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Cabbage</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.33</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Cabbage_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Cabbage_cut" title="Style">                                                        
+
+                        <option value="Grated">Grated</option>
+
+</select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Cabbage" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Capsicum</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.36</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Capsicum_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Capsicum_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+<option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Capsicum" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Carrot - Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.52</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Carrot_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Carrot_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+<option value="Grated">Grated</option>
+
+<option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Carrot" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Chow Chow Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.29</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Chow_Chow_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Chow_Chow_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                       </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Chow_Chow" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+           <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Cucumber - Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.43</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Cucumber_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Cucumber_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+<option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Cucumber" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Curry + Coriander leaves combo</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.10</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Curry_Coriander_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Curry_Coriander_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+<option value="Grated">Grated</option>
+
+<option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Curry_Coriander" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Drumstick</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.25</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Drumstick_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Drumstick_cut" title="Style">                                                        
+
+                       <option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Drumstick" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Fried Rice Combo</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.62</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Fried_Rice_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Fried_Rice_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Fried_Rice" onclick="addVegetable (this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Green Beans</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.32</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Green_Beans_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Green_Beans_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Green_Beans" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Ivy Gourd</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.58</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Ivy_Gourd_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Ivy_Gourd_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+<option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Ivy_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Ladies Finger</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.56</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Ladies_Finger_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Ladies_Finger_cut" title="Style">                                                        
+
+                        <option value="Fry cut">Sliced</option>
+
+<option value="Julienne">Sliced</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Ladies_Finger" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Onion - Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.53</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Onion_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Onion_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+<option value="Fine Chopped  Granules">Fine Chopped Granules</option>
+
+</select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Onion" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Potato - Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.34</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Potato_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Potato_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+<option value="Julienne">Julienne</option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Potato" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Ridge Gourd - Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.45</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Ridge_Gourd_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Ridge_Gourd_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Ridge_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Sanke Gourd</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.37</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Snake_Gourd_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Snake_Gourd_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Snake_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Tomato</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.45</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Tomato_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Tomato_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        <option value="Sliced">Sliced</option>
+
+                        </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Tomato" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Veg Salad Pack</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.45</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Veg_Salad" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Veg_Salad_cut" title="Style">                                                        
+
+                        <option value="Sliced">Sliced</option>
+
+</select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Veg_Salad" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+
+
+
+
+
+            <tr cellSpacing = 20>
+
+                <td>
+
+                    <label>Yellow Cucumber - Peeled</label>
+
+                </td>
+
+                <td>
+
+                    <label>250Gms</label>
+
+                </td>
+
+                <td>
+
+                    <label>Rs.29</label>
+
+                </td>
+
+                <td>
+
+                    <select id="Yellow_Cucumber_qty" title="Quantity">
+
+                        <label for="quantity">
+
+                        <option value="0">-</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        </label>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <select id="Yellow_Cucumber_cut" title="Style">                                                        
+
+                        <option value="Diced">Diced</option>
+
+                        </select>
+
+                </td>
+
+                <td>
+
+                    <button id="add_Yellow_Cucumber" onclick="addVegetable(this)">Add to Cart</button>
+
+                </td>
+
+            </tr>
+
+        </Table>
+        <!-- <br>
+            <input type="checkbox" id="vegetable2" name="vegetable" value="Broccoli">
+            <label for="vegetable2">Broccoli</label>
+            <select id="vegetable2_cut">
+                <option value="Whole">Whole</option>
+                <option value="Florets">Florets</option>
+            </select><br>
+            <input type="checkbox" id="vegetable3" name="vegetable" value="Tomato">
+            <label for="vegetable3">Tomato</label>
+            <select id="vegetable3_cut">
+                <option value="Whole">Whole</option>
+                <option value="Sliced">Sliced</option>
+                <option value="Diced">Diced</option>
+            </select><br> -->
+        <!-- Add more vegetables as needed -->
+
+        <br>
+        <button type="button" onclick="submitToWhatsApp()">Submit to WhatsApp</button>
+        </form>
+    </div>
+</body>
+
+</html>
