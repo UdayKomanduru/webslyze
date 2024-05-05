@@ -37,6 +37,10 @@
         table.slyzecolor tr:nth-child(odd) {
             background-color: yellow;
         }
+        
+        table.user {
+            background-color: rgb(15, 220, 235);
+        }
 
         body {
             margin: 0;
@@ -66,7 +70,7 @@
         }
 
         form {
-            margin-top: 20px;
+             margin-top: 1px; 
         }
 
         label {
@@ -227,6 +231,14 @@
                     //alert(orderdetails);
                     total -= itemtotal;
                 }
+                // Display Cart details
+                var cartcount = document.getElementById("itemcount");
+                cartcount.innerHTML = itemcount;
+
+                var carttotal = document.getElementById("itemtotal");
+                carttotal.innerHTML = total;
+
+
             }
             else {
                 alert("Select required quantity and Add to cart");
@@ -255,7 +267,7 @@
         <!-- <p>Please enter your Name, phone number & Address. Select the vegetables, Required Quantity and Chopping Style: </p> -->
 
         <form onsubmit="return false">
-            <Table id="delslot">
+            <Table id="delslot" class="user" width="100%">
                 <tr>
                     <td>
                         <label for="slot">Delivery Slot</label>
@@ -320,6 +332,17 @@
                         </main>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <label>Cart No.of Items</label>
+                        <label id="itemcount"></label>
+                    </td>
+                    <td>
+                        <label>Cart Value (Rs.)</label>
+                        <label id="itemtotal"></label>
+                    </td>                    
+                    
+                </tr>
             </Table>
             <!-- <label>Vegetables:</label><br>
             <input type="checkbox" id="vegetable1" name="vegetable" value="Carrot"> -->
@@ -331,40 +354,11 @@
                     <td>Quantity</td>
                     <td>Style</td>
                     <td>Cart</td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td>
-                        <label>Carrot</label>
-                    </td>
-                    <td>
-                        <label>200Gms</label>
-                    </td>
-                    <td>
-                        <label>Rs.40</label>
-                    </td>
-                    <td>
-                        <select id="vegetable1_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="vegetable1_cut" title="Style">
-                            <option value="Whole">Whole</option>
-                            <option value="Sliced">Sliced</option>
-                            <option value="Chopped">Chopped</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_veg1" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
+                </tr>                
                 <tr cellSpacing=20>
                     <td>
                         <label>Beetroot - Peeled</label>
+                        <img src="images/Beetroot.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -396,6 +390,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Bitter Gourd</label>
+                        <img src="images/Bitter_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -893,7 +888,7 @@
                 </tr>
                 <tr cellSpacing=20>
                     <td>
-                        <label>Sanke Gourd</label>
+                        <label>Snake Gourd</label>
                     </td>
                     <td>
                         <label>250Gms</label>
