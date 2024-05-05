@@ -11,9 +11,9 @@
             /* Ensures padding applies within borders */
         }
 
-        
+
         th {
-            padding: 5px;             
+            padding: 5px;
             /* Example padding value */
             font-family: Arial, sans-serif;
             font-weight: bold;
@@ -21,7 +21,7 @@
         }
 
         td {
-            padding: 5px;             
+            padding: 5px;
             /* Example padding value */
             font-family: Arial, sans-serif;
             font-weight: bold;
@@ -61,13 +61,13 @@
 
         label {
             display: block;
-            font-weight: bold; 
+            font-weight: bold;
         }
 
         input[type="text"],
         input[type="tel"] {
             width: 100%;
-            padding: 1px;            
+            padding: 1px;
             margin-bottom: 1px;
             border: 1px solid #ccc;
             border-radius: 1px;
@@ -104,42 +104,43 @@
         var userdetails, orderdetails, messagetext;
         let itemcount = 0;
         let total = 0;
-        userdetails="";
-        orderdetails="";
+        userdetails = "";
+        orderdetails = "";
         messagetext = "";
         function submitToWhatsApp() {
             // Get name and phone number
 
             var name = document.getElementById('name').value.trim();
-            if ( name==""){ alert("Please enter your name"); Retrun;}
-            var phoneNumber = document.getElementById('phone').value.trim();   
-            if ( phoneNumber==""){ alert("Please enter your Mobile Number"); Retrun;}     
+            if (name == "") { alert("Please enter your name"); Retrun; }
+            var phoneNumber = document.getElementById('phone').value.trim();
+            if (phoneNumber == "") { alert("Please enter your Mobile Number"); Retrun; }
             // Add address details to the message
             var flatNumber = document.getElementById('flat').value.trim();
-            if ( flatNumber==""){ alert("Please enter your Flat Details"); Retrun;}
+            if (flatNumber == "") { alert("Please enter your Flat Details"); Retrun; }
             var building = document.getElementById('building').value.trim();
-            if ( building==""){ alert("Please enter your Apartment/Building Details"); Retrun;}            
+            if (building == "") { alert("Please enter your Apartment/Building Details"); Retrun; }
             var streetAddress = document.getElementById('street-address').value.trim();
-            if ( streetAddress==""){ alert("Please enter your Street Details"); Retrun;}
+            if (streetAddress == "") { alert("Please enter your Street Details"); Retrun; }
             var landmark = document.getElementById('landmark').value.trim();
-            if ( landmark==""){ alert("Please enter your Location Landmark"); Retrun;}
-            userdetails += "Name: " + name +"\n";
+            if (landmark == "") { alert("Please enter your Location Landmark"); Retrun; }
+            userdetails += "Name: " + name + "\n";
             userdetails += "Mobile: " + phoneNumber + "\n";
-            userdetails += "Address:\n"; 
-            userdetails +=  flatNumber + "\n";
-            userdetails +=  building + "\n";
-            userdetails +=  streetAddress + "\n";
-            userdetails +=  landmark + "\n";
-            
+            userdetails += "Address:\n";
+            userdetails += flatNumber + "\n";
+            userdetails += building + "\n";
+            userdetails += streetAddress + "\n";
+            userdetails += landmark + "\n";
+
             // Validating Order Details
-       
-            
-            if(orderdetails==""){
+
+
+            if (orderdetails == "") {
                 alert("Add Vegetables to cart and place the order");
-                Return;}
-            else{
+                Return;
+            }
+            else {
                 orderdetails.replace(/^\s*\n/gm, "");
-            }    
+            }
 
 
             // Get Delivery Slot details                        
@@ -147,8 +148,8 @@
             //Read Delivery Slot selected by User  
             const delcell = deltab.rows[0].cells[1];
             const delslot = delcell.childNodes[1].value;
-            userdetails+="\n" + "Your Delivery Slot: " + delslot + "\n";
-            messagetext += userdetails + "\n" ;
+            userdetails += "\n" + "Your Delivery Slot: " + delslot + "\n";
+            messagetext += userdetails + "\n";
             messagetext += "\n" + "Your order for today: " + "\n";
             orderdetails += "\n" + "Total Amount: " + total + "\n";
             messagetext += orderdetails + "\n";
@@ -183,13 +184,13 @@
                 itemprice = Number(itemprice);
                 let itemqty = Number(qty);
                 var itemtotal = itemprice * itemqty;
-                
+
                 // Check whether we need to add/remove from cart
                 var title = curbutton.innerText;
-                if (title == "Add to Cart") {                    
+                if (title == "Add to Cart") {
                     itemcount++;
-                    if(itemcount==1){
-                        orderdetails += "Vegetable  || Style || Qty || Total" + "\n" + "_______________________________"  + "\n"; 
+                    if (itemcount == 1) {
+                        orderdetails += "Vegetable  || Style || Qty || Total" + "\n" + "_______________________________" + "\n";
                     }
                     // concatenate the values and add it to final message
                     let curItem = vegname + " || " + vegstyle + " || " + qty + " || " + itemtotal;
@@ -223,9 +224,17 @@
         <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-family='Verdana' font-size='35' fill='blue'%3ESlyze%3C/text%3E%3C/svg%3E" alt="Slyze Logo"> -->
     </header>
     <div class="container">
-        <h3>Vegetable Purchase</h3>
-        <p>Please enter your Name, phone number & Address. Select the vegetables, Required Quantity and Chopping Style:
-        </p>
+        <table width ="100%">
+            <tr>
+                <td ><img src="images/Logo Slyze.png" alt="Your Logo" width="40px"></td>
+                <td>
+                    <h3>Order Your Veggies</h3>
+                </td>
+                <td><img src="images/Text Slyze.png" alt="Your Logo" width="100px"></td>
+            </tr>
+        </table>
+        <!-- <p>Please enter your Name, phone number & Address. Select the vegetables, Required Quantity and Chopping Style: </p> -->
+        
         <form onsubmit="return false">
             <Table id="delslot">
                 <tr>
@@ -245,15 +254,16 @@
                         <label for="name">Name:</label>
                     </td> -->
                     <td>
-                        <label >Your Details:</label>
-                        
+                        <label>Your Details:</label>
+
                     </td>
                     <!-- <td>
                         <label for="phone">Mobile:</label>
                     </td> -->
                     <td>
                         <input type="text" id="name" name="name" placeholder="Please Enter Name" required>
-                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Please Enter Mobile Number" required>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
+                            placeholder="Please Enter Mobile Number" required>
                     </td>
                 </tr>
                 <tr>
@@ -273,16 +283,18 @@
                                         <!-- <label for="flat">Flat/House Number</label> -->
                                         <input required type="text" id="building" name="building" autocomplete="name"
                                             enterkeyhint="next" placeholder="Please Enter Apartment/Building Name">
-                                    </div>                                    
+                                    </div>
                                     <div>
                                         <!-- <label for="street-address">Street address</label> -->
                                         <input type="text" id="street-address" name="street-address"
-                                            autocomplete="street-address" required enterkeyhint="next" placeholder="Please Enter Street"></input>
+                                            autocomplete="street-address" required enterkeyhint="next"
+                                            placeholder="Please Enter Street"></input>
                                     </div>
                                     <div>
                                         <!-- <label for="landmark">landmark (optional)</label> -->
-                                        <input type="text" class="postal-code" id="landmark" name="landmark" autocomplete="landmark"
-                                            enterkeyhint="next" placeholder="Please Enter Landmark">
+                                        <input type="text" class="postal-code" id="landmark" name="landmark"
+                                            autocomplete="landmark" enterkeyhint="next"
+                                            placeholder="Please Enter Landmark">
                                     </div>
                                 </form>
                             </div>
