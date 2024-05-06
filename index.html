@@ -30,16 +30,16 @@
 
         /* Target even rows (background-color can be changed) */
         table.slyzecolor tr:nth-child(even) {
-            background-color: lightseagreen;
+            background-color: rgb(156, 199, 235);
         }
 
         /* Target odd rows (background-color can be changed) */
         table.slyzecolor tr:nth-child(odd) {
-            background-color: yellow;
+            background-color: rgb(215, 225, 233);
         }
         
         table.user {
-            background-color: rgb(15, 220, 235);
+            background-color: rgb(36, 232, 206);
         }
 
         body {
@@ -124,15 +124,27 @@
         }
     </style>
     <script>
-        var userdetails, orderdetails, messagetext;
-        let itemcount = 0;
-        let total = 0;
+        var userdetails, orderdetails, messagetext, itemcount, total ;
+document.addEventListener("DOMContentLoaded", function() {
+
+        itemcount = 0;
+        total = 0;
         userdetails = "";
         orderdetails = "";
         messagetext = "";
-        function submitToWhatsApp() {
-            // Get name and phone number
+        // Get Current Date details       
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth() + 1; //January is 0!
+        let yyyy = today.getFullYear();
+        let formattedDate = dd + '/' + mm + '/' + yyyy;
+        // Display Date in Delivery Slot label
+        var slot = document.getElementById("slot");
+        slot.innerHTML = "Delivery Slot for " + formattedDate + " :";        
 
+});
+
+        function validate_input(){
             var name = document.getElementById('name').value.trim();
             if (name == "") { alert("Please enter your name"); Retrun; }
             var phoneNumber = document.getElementById('phone').value.trim();
@@ -154,9 +166,13 @@
             userdetails += streetAddress + "\n";
             userdetails += landmark + "\n";
 
-            // Validating Order Details
+        }
 
-
+ 
+        function submitToWhatsApp() {
+            // Get name and phone number
+                validate_input();
+            // Validating Order Details        
             if (orderdetails == "") {
                 alert("Add Vegetables to cart and place the order");
                 Return;
@@ -230,6 +246,11 @@
                     curbutton.innerText = "Add to Cart";
                     //alert(orderdetails);
                     total -= itemtotal;
+
+                    // Resetting the dropdown values of quantity and style
+                    qtycell.childNodes[1].selectedIndex = 0;
+                    stylecell.childNodes[1].selectedIndex = 0;
+
                 }
                 // Display Cart details
                 var cartcount = document.getElementById("itemcount");
@@ -237,7 +258,6 @@
 
                 var carttotal = document.getElementById("itemtotal");
                 carttotal.innerHTML = total;
-
 
             }
             else {
@@ -259,7 +279,7 @@
             <tr>
                 <td align="center"><img src="images/Logo Slyze.png" alt="Your Logo" width="40px"></td>
                 <td align="center">
-                    <h3>Order Your Veggies</h3>
+                    <h3>Cut Veggies Shop</h3>
                 </td>
                 <td align="center"><img src="images/Text Slyze.png" alt="Your Logo" width="100px"></td>
             </tr>
@@ -270,7 +290,7 @@
             <Table id="delslot" class="user" width="100%">
                 <tr>
                     <td>
-                        <label for="slot">Delivery Slot</label>
+                        <label id="slot"></label>
                     </td>
                     <td>
                         <select id="delslot" required>
@@ -285,7 +305,7 @@
                         <label for="name">Name:</label>
                     </td> -->
                     <td>
-                        <label>Your Details:</label>
+                        <label>Customer Details:</label>
 
                     </td>
                     <!-- <td>
@@ -299,7 +319,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="address">Full Address:</label>
+                        <label for="address">Customer Address:</label>
                     </td>
                     <td>
                         <main>
@@ -334,16 +354,25 @@
                 </tr>
                 <tr>
                     <td>
-                        <label>Cart No.of Items</label>
+                        <label>No. of Items in Cart</label>
                         <label id="itemcount"></label>
                     </td>
                     <td>
-                        <label>Cart Value (Rs.)</label>
+                        <label>Total Cart Value (Rs.)</label>
                         <label id="itemtotal"></label>
-                    </td>                    
-                    
+                    <!-- </td>                    
+                    <td> -->
+                        <button type="button" onclick="submitToWhatsApp()">Submit to WhatsApp</button>
+                    </td>
                 </tr>
             </Table>
+            <table border="1" width="100%">
+                <tr>
+                    <td align="center">                        
+                        <img src="images/Veg Shape Banner.png" alt="Your Logo" width="100%">
+                    </td>
+                </tr>
+            </table>
             <!-- <label>Vegetables:</label><br>
             <input type="checkbox" id="vegetable1" name="vegetable" value="Carrot"> -->
             <Table id="veglist" border="1" class="slyzecolor">
@@ -420,6 +449,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Bottle Gourd - Peeled</label>
+                        <img src="images/Bottle_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -449,6 +479,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Broad Beans</label>
+                        <img src="images/Broad_Beans.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -478,6 +509,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Cabbage</label>
+                        <img src="images/Cabbage.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -506,6 +538,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Capsicum</label>
+                        <img src="images/Capsicum.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -536,6 +569,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Carrot - Peeled</label>
+                        <img src="images/Carrot.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -567,6 +601,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Chow Chow Peeled</label>
+                        <img src="images/Chow_Chow.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -595,6 +630,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Cucumber - Peeled</label>
+                        <img src="images/Cucumber.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -625,6 +661,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Curry + Coriander leaves combo</label>
+                        <img src="images/Curry_Coriander.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -643,11 +680,8 @@
                     </td>
                     <td>
                         <select id="Curry_Coriander_cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Sliced">Sliced</option>
-                            <option value="Grated">Grated</option>
-                            <option value="Julienne">Julienne</option>
-                        </select>
+                            <option value="Leaves">Leaves</option>
+                            </select>
                     </td>
                     <td>
                         <button id="add_Curry_Coriander" onclick="addVegetable(this)">Add to Cart</button>
@@ -656,6 +690,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Drumstick</label>
+                        <img src="images/Drumstick.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -684,6 +719,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Fried Rice Combo</label>
+                        <img src="images/Fried_Rice.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -702,9 +738,8 @@
                     </td>
                     <td>
                         <select id="Fried_Rice_cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Julienne">Julienne</option>
-                        </select>
+                            <option value="Mixed Cuts">Mixed Cuts</option>
+                            </select>
                     </td>
                     <td>
                         <button id="add_Fried_Rice" onclick="addVegetable (this)">Add to Cart</button>
@@ -713,6 +748,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Green Beans</label>
+                        <img src="images/Green_Beans.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -742,6 +778,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Ivy Gourd</label>
+                        <img src="images/Ivy_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -772,6 +809,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Ladies Finger</label>
+                        <img src="images/Ladies_Finger.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -790,8 +828,8 @@
                     </td>
                     <td>
                         <select id="Ladies_Finger_cut" title="Style">
-                            <option value="Fry cut">Sliced</option>
-                            <option value="Julienne">Sliced</option>
+                            <option value="Fry cut">Fry Cut</option>
+                            <option value="Julienne">Julienne</option>
                         </select>
                     </td>
                     <td>
@@ -801,6 +839,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Onion - Peeled</label>
+                        <img src="images/Onion.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -831,6 +870,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Potato - Peeled</label>
+                        <img src="images/Potato.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -861,6 +901,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Ridge Gourd - Peeled</label>
+                        <img src="images/Ridge_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -889,6 +930,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Snake Gourd</label>
+                        <img src="images/Snake_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -917,6 +959,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Tomato</label>
+                        <img src="images/Tomato.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -946,6 +989,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Veg Salad Pack</label>
+                        <img src="images/Veg_Salad.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
@@ -974,6 +1018,7 @@
                 <tr cellSpacing=20>
                     <td>
                         <label>Yellow Cucumber - Peeled</label>
+                        <img src="images/Yellow_Cucumber.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250Gms</label>
