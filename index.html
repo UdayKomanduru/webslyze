@@ -57,7 +57,7 @@
 
         header {
             text-align: center;
-            padding: 20px 0;
+            padding: 10px;
         }
 
         .container {
@@ -79,8 +79,9 @@
         }
 
         label {
-            display: block;
-            font-weight: bold;
+            /*display: block;*/
+            /*font-weight: bold;*/
+            font-size: 12px;
         }
 
         input[type="text"],
@@ -282,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 var cartcount = document.getElementById("itemcount");
                 cartcount.innerHTML = itemcount;
 
-                var carttotal = document.getElementById("itemtotal");
+                var carttotal = document.getElementById("itemtotal");                
                 carttotal.innerHTML = total;
 
             }
@@ -386,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                     <td align="left">
                         <label>Total Cart Value (Rs.)</label>
-                        <label id="itemtotal"></label>
+                        <label id="itemtotal"></label>                        
                     </td>                    
                     <td>
                         <button class="submit" type="button" onclick="submitToWhatsApp()">Place Order on WhatsApp</button>
@@ -406,8 +407,8 @@ document.addEventListener("DOMContentLoaded", function() {
                <!-- Header Row    -->
                 <tr>
                     <td align="left">Vegetable</td>
-                    <td>Weight(gms.)</td>
-                    <td>Price(Rs.)</td>
+                    <td align="left">Weight(Gms.)</td>
+                    <td align="left">Price(Rs.)</td>
                     <td>Quantity</td>
                     <td>Style</td>
                     <td>Cart</td>
