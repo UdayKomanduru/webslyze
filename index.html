@@ -22,7 +22,7 @@
         }
 
         td {
-            padding: 5px;
+            padding: 2px;
             /* Example padding value */
             font-family: Arial, sans-serif;
             font-weight: bold;
@@ -41,6 +41,9 @@
         }
         
         table.user {
+            background-color: rgb(156, 199, 235);
+        }
+        td.title {
             background-color: rgb(156, 199, 235);
         }
 
@@ -173,10 +176,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
         }
 
+        function validate_cart(){
+            if(itemcount==0)
+            {
+                alert("Your Cart is Empty. Please add items to cart");
+                Return;
+            }
+            if(total<100){
+                alert("Minimum order value is Rs.100");
+                Return ;
+            }
+
+
+        }
+
  
         function submitToWhatsApp() {
-            // Get name and phone number
+            // Validate User Details
                 validate_input();
+            // Validate Cart Details
+                validate_cart();    
             // Validating Order Details        
             if (orderdetails == "") {
                 alert("Add Vegetables to cart and place the order");
@@ -284,11 +303,11 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="container">
         <table width="100%" border="1">
             <tr>
-                <td align="center"><img src="images/Logo Slyze.png" alt="Your Logo" width="40px"></td>
-                <td align="center">
-                    <h3>Cut Veggies Shop</h3>
+                <td align="center"><img src="images/Logo Slyze.png" alt="Your Logo" width="30px"></td>
+                <td align="center" class="title">
+                    <h3>Fresh Cut Veggies! Delivered Home</h3>
                 </td>
-                <td align="center"><img src="images/Text Slyze.png" alt="Your Logo" width="100px"></td>
+                <td align="center"><img src="images/Text Slyze.png" alt="Your Logo" width="70px"></td>
             </tr>
         </table>
         <!-- <p>Please enter your Name, phone number & Address. Select the vegetables, Required Quantity and Chopping Style: </p> -->
@@ -302,8 +321,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td colspan="2">
                         <select id="delslot" required>
                             <option value="6:00 AM to 7:00 AM">6:00 AM to 7:00 AM</option>
-                            <option value="7:00 AM to 8:00 AM">7:00 AM to 8:00 AM</option>
-                            <option value="8:00 AM to 9:00 AM" default>8:00 AM to 9:00 AM</option>
+                            <option value="8:00 AM to 9:00 AM">8:00 AM to 9:00 AM</option>
+                            <option value="10:00 AM to 11:00 AM" default>10:00 AM to 11:00 AM</option>
                         </select>
                     </td>
                 </tr>
@@ -312,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <label for="name">Name:</label>
                     </td> -->
                     <td align="left">
-                        <label>Customer Details:</label>
+                        <label>Customer Details * :</label>
 
                     </td>
                     <!-- <td>
@@ -326,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </tr>
                 <tr>
                     <td align="left">
-                        <label for="address">Customer Address:</label>
+                        <label for="address">Customer Address * :</label>
                     </td>
                     <td colspan="2">
                         <main>
@@ -385,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <Table id="veglist" border="1" class="slyzecolor" table-layout="auto" width="100%">
                <!-- Header Row    -->
                 <tr>
-                    <td>Vegetable</td>
+                    <td align="left">Vegetable</td>
                     <td>Weight(gms.)</td>
                     <td>Price(Rs.)</td>
                     <td>Quantity</td>
