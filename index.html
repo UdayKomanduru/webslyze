@@ -334,12 +334,12 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <form>
                                     <div>
                                         <!-- <label for="flat">Flat/House Number</label> -->
-                                        <input required type="text" id="flat" name="flat" autocomplete="name"
+                                        <input type="text" id="flat" name="flat" autocomplete="name"
                                             enterkeyhint="next" placeholder="Please Enter Flat No.">
                                     </div>
                                     <div>
                                         <!-- <label for="flat">Flat/House Number</label> -->
-                                        <input required type="text" id="building" name="building" autocomplete="name"
+                                        <input type="text" id="building" name="building" autocomplete="name"
                                             enterkeyhint="next" placeholder="Please Enter Apartment/Building Name">
                                     </div>
                                     <div>
@@ -383,6 +383,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <!-- <label>Vegetables:</label><br>
             <input type="checkbox" id="vegetable1" name="vegetable" value="Carrot"> -->
             <Table id="veglist" border="1" class="slyzecolor" table-layout="auto">
+               <!-- Header Row    -->
                 <tr>
                     <td>Vegetable</td>
                     <td>Weight(gms.)</td>
@@ -390,11 +391,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>Quantity</td>
                     <td>Style</td>
                     <td>Cart</td>
-                </tr>                
+                </tr>
+
+                <!-- Tomato -->
                 <tr cellSpacing=20>
                     <td align="left">
-                        <label>Beetroot - Peeled</label>
-                        <img src="images/Beetroot.png" alt="Your Logo" width="40px">
+                        <label>Tomato</label>
+                        <img src="images/Tomato.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250</label>
@@ -403,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <label>45</label>
                     </td>
                     <td>
-                        <select id="Beetroot_qty" title="Quantity">
+                        <select id="Tomato_qty" title="Quantity">
                             <label for="quantity">
                                 <option value="0">-</option>
                                 <option value="1">1</option>
@@ -412,60 +415,31 @@ document.addEventListener("DOMContentLoaded", function() {
                         </select>
                     </td>
                     <td>
-                        <select id="Beetroot_cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Sliced">Sliced</option>
-                            <option value="Grated">Grated</option>
-                            <option value="Julienne">Julienne</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Beetroot" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Bitter Gourd</label>
-                        <img src="images/Bitter_Gourd.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>45</label>
-                    </td>
-                    <td>
-                        <select id="Bitter_Gourd_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Bitter_Gourd_cut" title="Style">
+                        <select id="Tomato_cut" title="Style">
                             <option value="Diced">Diced</option>
                             <option value="Sliced">Sliced</option>
                         </select>
                     </td>
                     <td>
-                        <button id="add_Bitter_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+                        <button id="add_Tomato" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
+
+                <!-- Potato -->
+
                 <tr cellSpacing=20>
                     <td align="left">
-                        <label>Bottle Gourd - Peeled</label>
-                        <img src="images/Bottle_Gourd.png" alt="Your Logo" width="40px">
+                        <label>Potato - Peeled</label>
+                        <img src="images/Potato.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250</label>
                     </td>
                     <td>
-                        <label>38</label>
+                        <label>34</label>
                     </td>
                     <td>
-                        <select id="Bottle_Gourd _qty" title="Quantity">
+                        <select id="Potato_qty" title="Quantity">
                             <label for="quantity">
                                 <option value="0">-</option>
                                 <option value="1">1</option>
@@ -474,105 +448,119 @@ document.addEventListener("DOMContentLoaded", function() {
                         </select>
                     </td>
                     <td>
-                        <select id="Bottle_Gourd _cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Sliced">Sliced</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Bottle_Gourd" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Broad Beans</label>
-                        <img src="images/Broad_Beans.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>48</label>
-                    </td>
-                    <td>
-                        <select id="Broad_Beans_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Broad_Beans_cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Julienne">Julienne</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Broad_Beans" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Cabbage</label>
-                        <img src="images/Cabbage.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>33</label>
-                    </td>
-                    <td>
-                        <select id="Cabbage_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Cabbage_cut" title="Style">
-                            <option value="Grated">Grated</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Cabbage" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Capsicum</label>
-                        <img src="images/Capsicum.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>36</label>
-                    </td>
-                    <td>
-                        <select id="Capsicum_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Capsicum_cut" title="Style">
+                        <select id="Potato_cut" title="Style">
                             <option value="Diced">Diced</option>
                             <option value="Sliced">Sliced</option>
                             <option value="Julienne">Julienne</option>
                         </select>
                     </td>
                     <td>
-                        <button id="add_Capsicum" onclick="addVegetable(this)">Add to Cart</button>
+                        <button id="add_Potato" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
+
+                <!-- Onion -->
+
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Onion - Peeled</label>
+                        <img src="images/Onion.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>53</label>
+                    </td>
+                    <td>
+                        <select id="Onion_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Onion_cut" title="Style">
+                            <option value="Diced">Diced</option>
+                            <option value="Sliced">Sliced</option>
+                            <option value="Fine Chopped  Granules">Fine Chopped Granules</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Onion" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+
+                <!-- Ladysfinger -->
+
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label >Ladies Finger</label>
+                        <img src="images/Ladies_Finger.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>56</label>
+                    </td>
+                    <td>
+                        <select id="Ladies_Finger_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Ladies_Finger_cut" title="Style">
+                            <option value="Fry cut">Fry Cut</option>
+                            <option value="Julienne">Julienne</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Ladies_Finger" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Ivy_Gourd -->
+
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Ivy Gourd</label>
+                        <img src="images/Ivy_Gourd.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>58</label>
+                    </td>
+                    <td>
+                        <select id="Ivy_Gourd_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Ivy_Gourd_cut" title="Style">
+                            <option value="Diced">Diced</option>
+                            <option value="Sliced">Sliced</option>
+                            <option value="Julienne">Julienne</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Ivy_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+
+                <!-- Carrot -->
+
                 <tr cellSpacing=20>
                     <td align="left">
                         <label>Carrot - Peeled</label>
@@ -605,19 +593,20 @@ document.addEventListener("DOMContentLoaded", function() {
                         <button id="add_Carrot" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
+                <!-- Cabbage -->
                 <tr cellSpacing=20>
                     <td align="left">
-                        <label>Chow Chow Peeled</label>
-                        <img src="images/Chow_Chow.png" alt="Your Logo" width="40px">
+                        <label>Cabbage</label>
+                        <img src="images/Cabbage.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250</label>
                     </td>
                     <td>
-                        <label>29</label>
+                        <label>33</label>
                     </td>
                     <td>
-                        <select id="Chow_Chow_qty" title="Quantity">
+                        <select id="Cabbage_qty" title="Quantity">
                             <label for="quantity">
                                 <option value="0">-</option>
                                 <option value="1">1</option>
@@ -626,14 +615,172 @@ document.addEventListener("DOMContentLoaded", function() {
                         </select>
                     </td>
                     <td>
-                        <select id="Chow_Chow_cut" title="Style">
-                            <option value="Diced">Diced</option>
+                        <select id="Cabbage_cut" title="Style">
+                            <option value="Grated">Grated</option>
                         </select>
                     </td>
                     <td>
-                        <button id="add_Chow_Chow" onclick="addVegetable(this)">Add to Cart</button>
+                        <button id="add_Cabbage" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
+                <!-- Drumstick -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Drumstick</label>
+                        <img src="images/Drumstick.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>25</label>
+                    </td>
+                    <td>
+                        <select id="Drumstick_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td >
+                        <select id="Drumstick_cut" title="Style">
+                            <option value="Julienne">Julienne</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Drumstick" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Green_Beans -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Green Beans</label>
+                        <img src="images/Green_Beans.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>32</label>
+                    </td>
+                    <td>
+                        <select id="Green_Beans_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Green_Beans_cut" title="Style">
+                            <option value="Diced">Diced</option>
+                            <option value="Julienne">Julienne</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Green_Beans" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Broad_Beans -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Broad Beans</label>
+                        <img src="images/Broad_Beans.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>48</label>
+                    </td>
+                    <td>
+                        <select id="Broad_Beans_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Broad_Beans_cut" title="Style">
+                            <option value="Diced">Diced</option>
+                            <option value="Julienne">Julienne</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Broad_Beans" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Beetroot -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Beetroot - Peeled</label>
+                        <img src="images/Beetroot.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>45</label>
+                    </td>
+                    <td>
+                        <select id="Beetroot_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Beetroot_cut" title="Style">
+                            <option value="Diced">Diced</option>
+                            <option value="Sliced">Sliced</option>
+                            <option value="Grated">Grated</option>
+                            <option value="Julienne">Julienne</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Beetroot" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Capsicum -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Capsicum</label>
+                        <img src="images/Capsicum.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>36</label>
+                    </td>
+                    <td>
+                        <select id="Capsicum_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Capsicum_cut" title="Style">
+                            <option value="Diced">Diced</option>
+                            <option value="Sliced">Sliced</option>
+                            <option value="Julienne">Julienne</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Capsicum" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Cucumber -->
                 <tr cellSpacing=20>
                     <td align="left">
                         <label>Cucumber - Peeled</label>
@@ -665,246 +812,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <button id="add_Cucumber" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Curry + Coriander leaves combo</label>
-                        <img src="images/Curry_Coriander.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>10</label>
-                    </td>
-                    <td>
-                        <select id="Curry_Coriander_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Curry_Coriander_cut" title="Style">
-                            <option value="Leaves">Leaves</option>
-                            </select>
-                    </td>
-                    <td>
-                        <button id="add_Curry_Coriander" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Drumstick</label>
-                        <img src="images/Drumstick.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>25</label>
-                    </td>
-                    <td>
-                        <select id="Drumstick_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td >
-                        <select id="Drumstick_cut" title="Style">
-                            <option value="Julienne">Julienne</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Drumstick" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Fried Rice Combo</label>
-                        <img src="images/Fried_Rice.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>62</label>
-                    </td>
-                    <td>
-                        <select id="Fried_Rice_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Fried_Rice_cut" title="Style">
-                            <option value="Mixed Cuts">Mixed Cuts</option>
-                            </select>
-                    </td>
-                    <td>
-                        <button id="add_Fried_Rice" onclick="addVegetable (this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Green Beans</label>
-                        <img src="images/Green_Beans.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>32</label>
-                    </td>
-                    <td>
-                        <select id="Green_Beans_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Green_Beans_cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Julienne">Julienne</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Green_Beans" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Ivy Gourd</label>
-                        <img src="images/Ivy_Gourd.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>58</label>
-                    </td>
-                    <td>
-                        <select id="Ivy_Gourd_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Ivy_Gourd_cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Sliced">Sliced</option>
-                            <option value="Julienne">Julienne</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Ivy_Gourd" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label >Ladies Finger</label>
-                        <img src="images/Ladies_Finger.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>56</label>
-                    </td>
-                    <td>
-                        <select id="Ladies_Finger_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Ladies_Finger_cut" title="Style">
-                            <option value="Fry cut">Fry Cut</option>
-                            <option value="Julienne">Julienne</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Ladies_Finger" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Onion - Peeled</label>
-                        <img src="images/Onion.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>53</label>
-                    </td>
-                    <td>
-                        <select id="Onion_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Onion_cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Sliced">Sliced</option>
-                            <option value="Fine Chopped  Granules">Fine Chopped Granules</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Onion" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Potato - Peeled</label>
-                        <img src="images/Potato.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>34</label>
-                    </td>
-                    <td>
-                        <select id="Potato_qty" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Potato_cut" title="Style">
-                            <option value="Diced">Diced</option>
-                            <option value="Sliced">Sliced</option>
-                            <option value="Julienne">Julienne</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Potato" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
+                <!-- Ride-Guard -->
                 <tr cellSpacing=20>
                     <td align="left">
                         <label>Ridge Gourd - Peeled</label>
@@ -934,6 +842,71 @@ document.addEventListener("DOMContentLoaded", function() {
                         <button id="add_Ridge_Gourd" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
+                <!-- Bitter_Gourd -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Bitter Gourd</label>
+                        <img src="images/Bitter_Gourd.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>45</label>
+                    </td>
+                    <td>
+                        <select id="Bitter_Gourd_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Bitter_Gourd_cut" title="Style">
+                            <option value="Diced">Diced</option>
+                            <option value="Sliced">Sliced</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Bitter_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Bottle_Gourd -->
+
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Bottle Gourd - Peeled</label>
+                        <img src="images/Bottle_Gourd.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>38</label>
+                    </td>
+                    <td>
+                        <select id="Bottle_Gourd _qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Bottle_Gourd _cut" title="Style">
+                            <option value="Diced">Diced</option>
+                            <option value="Sliced">Sliced</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Bottle_Gourd" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+
+                <!-- Snake-Gourd -->
                 <tr cellSpacing=20>
                     <td align="left">
                         <label>Snake Gourd</label>
@@ -963,19 +936,20 @@ document.addEventListener("DOMContentLoaded", function() {
                         <button id="add_Snake_Gourd" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
+                <!-- chow-chow -->
                 <tr cellSpacing=20>
                     <td align="left">
-                        <label>Tomato</label>
-                        <img src="images/Tomato.png" alt="Your Logo" width="40px">
+                        <label>Chow Chow Peeled</label>
+                        <img src="images/Chow_Chow.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
                         <label>250</label>
                     </td>
                     <td>
-                        <label>45</label>
+                        <label>29</label>
                     </td>
                     <td>
-                        <select id="Tomato_qty" title="Quantity">
+                        <select id="Chow_Chow_qty" title="Quantity">
                             <label for="quantity">
                                 <option value="0">-</option>
                                 <option value="1">1</option>
@@ -984,44 +958,15 @@ document.addEventListener("DOMContentLoaded", function() {
                         </select>
                     </td>
                     <td>
-                        <select id="Tomato_cut" title="Style">
+                        <select id="Chow_Chow_cut" title="Style">
                             <option value="Diced">Diced</option>
-                            <option value="Sliced">Sliced</option>
                         </select>
                     </td>
                     <td>
-                        <button id="add_Tomato" onclick="addVegetable(this)">Add to Cart</button>
+                        <button id="add_Chow_Chow" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
-                <tr cellSpacing=20>
-                    <td align="left">
-                        <label>Veg Salad Pack</label>
-                        <img src="images/Veg_Salad.png" alt="Your Logo" width="40px">
-                    </td>
-                    <td>
-                        <label>250</label>
-                    </td>
-                    <td>
-                        <label>45</label>
-                    </td>
-                    <td>
-                        <select id="Veg_Salad" title="Quantity">
-                            <label for="quantity">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </label>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="Veg_Salad_cut" title="Style">
-                            <option value="Sliced">Sliced</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="add_Veg_Salad" onclick="addVegetable(this)">Add to Cart</button>
-                    </td>
-                </tr>
+                <!-- Yellow Cucumber -->
                 <tr cellSpacing=20>
                     <td align="left">
                         <label>Yellow Cucumber - Peeled</label>
@@ -1049,6 +994,97 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                     <td>
                         <button id="add_Yellow_Cucumber" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Curry+Corainder -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Curry + Coriander leaves combo</label>
+                        <img src="images/Curry_Coriander.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>10</label>
+                    </td>
+                    <td>
+                        <select id="Curry_Coriander_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Curry_Coriander_cut" title="Style">
+                            <option value="Leaves">Leaves</option>
+                            </select>
+                    </td>
+                    <td>
+                        <button id="add_Curry_Coriander" onclick="addVegetable(this)">Add to Cart</button>
+                    </td>
+                </tr>
+
+                <!-- FriedRice Mix -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Fried Rice Combo</label>
+                        <img src="images/Fried_Rice.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>62</label>
+                    </td>
+                    <td>
+                        <select id="Fried_Rice_qty" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Fried_Rice_cut" title="Style">
+                            <option value="Mixed Cuts">Mixed Cuts</option>
+                            </select>
+                    </td>
+                    <td>
+                        <button id="add_Fried_Rice" onclick="addVegetable (this)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Veg Salad Mix -->
+                <tr cellSpacing=20>
+                    <td align="left">
+                        <label>Veg Salad Pack</label>
+                        <img src="images/Veg_Salad.png" alt="Your Logo" width="40px">
+                    </td>
+                    <td>
+                        <label>250</label>
+                    </td>
+                    <td>
+                        <label>45</label>
+                    </td>
+                    <td>
+                        <select id="Veg_Salad" title="Quantity">
+                            <label for="quantity">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </label>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Veg_Salad_cut" title="Style">
+                            <option value="Sliced">Sliced</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="add_Veg_Salad" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
             </table>
