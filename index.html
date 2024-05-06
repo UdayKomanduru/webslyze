@@ -228,6 +228,33 @@ document.addEventListener("DOMContentLoaded", function() {
             // Redirect to WhatsApp
             window.location.href = whatsappLink;
         }
+
+        function resetcart(){
+            // Read Vegetable Table
+            const table = document.getElementById("veglist");
+            //Reset Cart table
+            for(i=1;i<23;i++){
+             // read Qty, Style cell, Add/Remove cart button from each row of the table   
+                const qtycell = table.rows[i].cells[3];
+                const stylecell = table.rows[i].cells[4];   
+                const buttoncell = table.rows[i].cells[5];
+                //const buttontext = buttoncell.childNodes[1].innerText;
+             // Resetting the dropdown values of quantity and style
+                qtycell.childNodes[1].selectedIndex = 0;
+                stylecell.childNodes[1].selectedIndex = 0;
+                buttoncell.childNodes[1].innerText = "Add to Cart";
+            }
+                // Reset Cart Total and Cart Item Count
+                itemcount = 0;
+                total = 0.
+                // Display Cart details
+                var cartcount = document.getElementById("itemcount");
+                cartcount.innerHTML = itemcount;
+
+                var carttotal = document.getElementById("itemtotal");                
+                carttotal.innerHTML = total;            
+        }
+
         function addVegetable(curbutton) {
             // Get Current Button Row ID in the table    
             var currow = curbutton.parentNode.parentNode.rowIndex;
@@ -390,7 +417,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         <label id="itemtotal"></label>                        
                     </td>                    
                     <td>
-                        <button class="submit" type="button" onclick="submitToWhatsApp()">Place Order on WhatsApp</button>
+                        <button class="submit" type="button" onclick="submitToWhatsApp()">Order on WhatsApp</button>
+                        <button class="submit" type="button" onclick="resetcart()">Reset Cart</button>
                     </td>
                 </tr>
             </Table>
@@ -407,8 +435,8 @@ document.addEventListener("DOMContentLoaded", function() {
                <!-- Header Row    -->
                 <tr>
                     <td><label>Vegetable</label></td>
-                    <td><label>Weight(Gms.)</label></td>
-                    <td><label>Price(Rs.)</label></td>
+                    <td><label>Weight (Gms.)</label></td>
+                    <td><label>Price (Rs.)</label></td>
                     <td><label>Quantity  </label></td>
                     <td><label>Chopping Style</label></td>
                     <td><label>Cart</label></td>
@@ -1125,7 +1153,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </select><br> -->
             <!-- Add more vegetables as needed -->
             <br>
-            <button class="submit" type="button" onclick="submitToWhatsApp()">Place Order on WhatsApp</button>
+            <button class="submit" type="button" onclick="submitToWhatsApp()">Order on WhatsApp</button>
         </form>
     </div>
 </body>
