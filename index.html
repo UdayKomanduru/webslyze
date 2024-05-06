@@ -39,14 +39,14 @@
         }
         
         table.user {
-            background-color: rgb(36, 232, 206);
+            background-color: rgb(156, 199, 235);
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #eafae1;
+            /* background-color: #eafae1; */
             /* Smooth and light green background color */
         }
 
@@ -134,13 +134,14 @@ document.addEventListener("DOMContentLoaded", function() {
         messagetext = "";
         // Get Current Date details       
         let today = new Date();
-        let dd = today.getDate();
-        let mm = today.getMonth() + 1; //January is 0!
+        let dd = today.getDate() + 1;
+        let mmm = today.toLocaleString('default', { month: 'short' });
+        //let mm = today.getMonth() + 1; //January is 0!
         let yyyy = today.getFullYear();
-        let formattedDate = dd + '/' + mm + '/' + yyyy;
+        let formattedDate = dd + '/' + mmm + '/' + yyyy;
         // Display Date in Delivery Slot label
         var slot = document.getElementById("slot");
-        slot.innerHTML = "Delivery Slot for " + formattedDate + " :";        
+        slot.innerHTML = "Delivery on " + formattedDate + " by :";        
 
 });
 
@@ -191,6 +192,8 @@ document.addEventListener("DOMContentLoaded", function() {
             messagetext += userdetails + "\n";
             messagetext += "\n" + "Your order for today: " + "\n";
             orderdetails += "\n" + "Total Amount: " + total + "\n";
+
+
             messagetext += orderdetails + "\n";
             messagetext = messagetext.replace(/^\s*\n/gm, "");
             // Construct pre-filled message with selected vegetables, name, and phone number
@@ -292,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>
                         <label id="slot"></label>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <select id="delslot" required>
                             <option value="6:00 AM to 7:00 AM">6:00 AM to 7:00 AM</option>
                             <option value="7:00 AM to 8:00 AM">7:00 AM to 8:00 AM</option>
@@ -311,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <!-- <td>
                         <label for="phone">Mobile:</label>
                     </td> -->
-                    <td>
+                    <td colspan="2">
                         <input type="text" id="name" name="name" placeholder="Please Enter Name" required>
                         <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
                             placeholder="Please Enter Mobile Number" required>
@@ -321,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>
                         <label for="address">Customer Address:</label>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <main>
                             <div class="wrapper">
                                 <form>
@@ -360,9 +363,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>
                         <label>Total Cart Value (Rs.)</label>
                         <label id="itemtotal"></label>
-                    <!-- </td>                    
-                    <td> -->
-                        <button type="button" onclick="submitToWhatsApp()">Submit to WhatsApp</button>
+                    </td>                    
+                    <td>
+                        <button class="submit" type="button" onclick="submitToWhatsApp()">Place Order on WhatsApp</button>
                     </td>
                 </tr>
             </Table>
@@ -1061,7 +1064,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </select><br> -->
             <!-- Add more vegetables as needed -->
             <br>
-            <button class="submit" type="button" onclick="submitToWhatsApp()">Submit to WhatsApp</button>
+            <button class="submit" type="button" onclick="submitToWhatsApp()">Place Order on WhatsApp</button>
         </form>
     </div>
 </body>
