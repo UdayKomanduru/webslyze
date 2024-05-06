@@ -39,10 +39,11 @@
         table.slyzecolor tr:nth-child(odd) {
             background-color: rgb(215, 225, 233);
         }
-        
+
         table.user {
             background-color: rgb(156, 199, 235);
         }
+
         td.title {
             background-color: rgb(156, 199, 235);
         }
@@ -75,7 +76,7 @@
         }
 
         form {
-             margin-top: 1px; 
+            margin-top: 1px;
         }
 
         label {
@@ -110,6 +111,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         button.submit {
             padding: 10px 20px;
             background-color: #007BFF;
@@ -130,30 +132,30 @@
         }
     </style>
     <script>
-        var userdetails, orderdetails, messagetext, itemcount, total ;
+        var userdetails, orderdetails, messagetext, itemcount, total;
         var datemessage;
-document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
 
-        itemcount = 0;
-        total = 0;
-        userdetails = "";
-        orderdetails = "";
-        messagetext = "";
-        // Get Current Date details       
-        let today = new Date();
-        let dd = today.getDate() + 1;
-        let mmm = today.toLocaleString('default', { month: 'short' });
-        //let mm = today.getMonth() + 1; //January is 0!
-        let yyyy = today.getFullYear();
-        let formattedDate = dd + '/' + mmm + '/' + yyyy;
-        // Display Date in Delivery Slot label
-        var slot = document.getElementById("slot");         
-        datemessage = "Delivery on " + formattedDate + " by :";   
-        slot.innerHTML = datemessage;     
+            itemcount = 0;
+            total = 0;
+            userdetails = "";
+            orderdetails = "";
+            messagetext = "";
+            // Get Current Date details       
+            let today = new Date();
+            let dd = today.getDate() + 1;
+            let mmm = today.toLocaleString('default', { month: 'short' });
+            //let mm = today.getMonth() + 1; //January is 0!
+            let yyyy = today.getFullYear();
+            let formattedDate = dd + '/' + mmm + '/' + yyyy;
+            // Display Date in Delivery Slot label
+            var slot = document.getElementById("slot");
+            datemessage = "Delivery on " + formattedDate + " by :";
+            slot.innerHTML = datemessage;
 
-});
+        });
 
-        function validate_input(){
+        function validate_input() {
             var name = document.getElementById('name').value.trim();
             if (name == "") { alert("Please enter your name"); Retrun; }
             var phoneNumber = document.getElementById('phone').value.trim();
@@ -167,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (streetAddress == "") { alert("Please enter your Street Details"); Retrun; }
             var landmark = document.getElementById('landmark').value.trim();
             if (landmark == "") { alert("Please enter your Location Landmark"); Retrun; }
+            userdetails = "";
             userdetails += "Name: " + name + "\n";
             userdetails += "Mobile: " + phoneNumber + "\n";
             userdetails += "Address:\n";
@@ -177,26 +180,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
         }
 
-        function validate_cart(){
-            if(itemcount==0)
-            {
+        function validate_cart() {
+            if (itemcount == 0) {
                 alert("Your Cart is Empty. Please add items to cart");
                 Return;
             }
-            if(total<100){
+            if (total < 100) {
                 alert("Minimum order value is Rs.100");
-                Return ;
+                Return;
             }
 
 
         }
 
- 
+
         function submitToWhatsApp() {
             // Validate User Details
-                validate_input();
+            validate_input();
             // Validate Cart Details
-                validate_cart();    
+            validate_cart();
             // Validating Order Details        
             if (orderdetails == "") {
                 alert("Add Vegetables to cart and place the order");
@@ -212,16 +214,16 @@ document.addEventListener("DOMContentLoaded", function() {
             //Read Delivery Slot selected by User  
             const delcell = deltab.rows[0].cells[1];
             const delslot = delcell.childNodes[1].value;
+            // Add Delivery Slot details to User Details
             userdetails += "\n" + datemessage + " " + delslot + "\n";
+            // Add User Details and Delivery Slot details to Message            
             messagetext += userdetails + "\n";
-            //messagetext += "\n" + "Your order for today: " + "\n";
+            // Add Total Amout of the cart to Order Details
             orderdetails += "\n" + "Total Amount: " + total + "\n";
-
-
+            // Add Order Details to the Message
             messagetext += orderdetails + "\n";
             messagetext = messagetext.replace(/^\s*\n/gm, "");
-            // Construct pre-filled message with selected vegetables, name, and phone number
-            //message = encodeURIComponent("Hello, my name is " + name + ". My phone number is " + phoneNumber + ". I'd like to order the following vegetables: " + selectedVegetables.join(', '));
+            // URL Encode the final message text            
             messagetext = encodeURIComponent(messagetext);
             // Construct WhatsApp link with pre-filled message
             var whatsappLink = "https://wa.me/919176693332?text=" + messagetext; // Replace 'whatsappphonenumber' with actual phone number
@@ -229,30 +231,39 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = whatsappLink;
         }
 
-        function resetcart(){
+        function resetcart() {
             // Read Vegetable Table
             const table = document.getElementById("veglist");
             //Reset Cart table
-            for(i=1;i<23;i++){
-             // read Qty, Style cell, Add/Remove cart button from each row of the table   
+            for (i = 1; i < 23; i++) {
+                // read Qty, Style cell, Add/Remove cart button from each row of the table   
                 const qtycell = table.rows[i].cells[3];
-                const stylecell = table.rows[i].cells[4];   
+                const stylecell = table.rows[i].cells[4];
                 const buttoncell = table.rows[i].cells[5];
-                //const buttontext = buttoncell.childNodes[1].innerText;
-             // Resetting the dropdown values of quantity and style
+                
+                // Resetting the dropdown values of quantity and style
                 qtycell.childNodes[1].selectedIndex = 0;
                 stylecell.childNodes[1].selectedIndex = 0;
                 buttoncell.childNodes[1].innerText = "Add to Cart";
-            }
-                // Reset Cart Total and Cart Item Count
-                itemcount = 0;
-                total = 0.
-                // Display Cart details
-                var cartcount = document.getElementById("itemcount");
-                cartcount.innerHTML = itemcount;
 
-                var carttotal = document.getElementById("itemtotal");                
-                carttotal.innerHTML = total;            
+                //enable the quantity and style cells                                    
+                qtycell.childNodes[1].disabled = false;
+                stylecell.childNodes[1].disabled = false;
+
+
+            }
+            // Reset Cart Total and Cart Item Count
+            itemcount = 0;
+            total = 0.
+            orderdetails = "";
+            messagetext = "";
+
+            // Display Cart details
+            var cartcount = document.getElementById("itemcount");
+            cartcount.innerHTML = itemcount;
+
+            var carttotal = document.getElementById("itemtotal");
+            carttotal.innerHTML = total;
         }
 
         function addVegetable(curbutton) {
@@ -278,6 +289,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 let itemqty = Number(qty);
                 var itemtotal = itemprice * itemqty;
 
+                // Disable Quantity and Style Cells
+                qtycell.childNodes[1].disabled = true;
+                stylecell.childNodes[1].disabled = true;
+
+
                 // Check whether we need to add/remove from cart
                 var title = curbutton.innerText;
                 if (title == "Add to Cart") {
@@ -301,6 +317,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     //alert(orderdetails);
                     total -= itemtotal;
 
+                    // Enable Quantity and Style Cells
+                    qtycell.childNodes[1].disabled = false;
+                    stylecell.childNodes[1].disabled = false;
+
                     // Resetting the dropdown values of quantity and style
                     qtycell.childNodes[1].selectedIndex = 0;
                     stylecell.childNodes[1].selectedIndex = 0;
@@ -310,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 var cartcount = document.getElementById("itemcount");
                 cartcount.innerHTML = itemcount;
 
-                var carttotal = document.getElementById("itemtotal");                
+                var carttotal = document.getElementById("itemtotal");
                 carttotal.innerHTML = total;
 
             }
@@ -332,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <table width="100%" border="1">
             <tr>
                 <td align="center"><img src="images/Logo Slyze.png" alt="Your Logo" width="30px"></td>
-                <td  align="center" class="title"> 
+                <td align="center" class="title">
                     <!-- <h6>Fresh Cut Veggies! Delivered Home</h6>  -->
                     <label>Fresh Cut Veggies! Delivered Home</label>
                 </td>
@@ -382,8 +402,8 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <form>
                                     <div>
                                         <!-- <label for="flat">Flat/House Number</label> -->
-                                        <input type="text" id="flat" name="flat" autocomplete="name"
-                                            enterkeyhint="next" placeholder="Please Enter Flat No.">
+                                        <input type="text" id="flat" name="flat" autocomplete="name" enterkeyhint="next"
+                                            placeholder="Please Enter Flat No.">
                                     </div>
                                     <div>
                                         <!-- <label for="flat">Flat/House Number</label> -->
@@ -414,8 +434,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                     <td align="left">
                         <label>Total Cart Value (Rs.)</label>
-                        <label id="itemtotal"></label>                        
-                    </td>                    
+                        <label id="itemtotal"></label>
+                    </td>
                     <td>
                         <button class="submit" type="button" onclick="submitToWhatsApp()">Order on WhatsApp</button>
                         <button class="submit" type="button" onclick="resetcart()">Reset Cart</button>
@@ -424,7 +444,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </Table>
             <table border="1" width="100%">
                 <tr>
-                    <td align="center">                        
+                    <td align="center">
                         <img src="images/Veg Shape Banner.png" alt="Your Logo" width="100%">
                     </td>
                 </tr>
@@ -432,12 +452,12 @@ document.addEventListener("DOMContentLoaded", function() {
             <!-- <label>Vegetables:</label><br>
             <input type="checkbox" id="vegetable1" name="vegetable" value="Carrot"> -->
             <Table id="veglist" border="1" class="slyzecolor" table-layout="auto" width="100%">
-               <!-- Header Row    -->
+                <!-- Header Row    -->
                 <tr>
                     <td><label>Vegetable</label></td>
                     <td><label>Weight (Gms.)</label></td>
                     <td><label>Price (Rs.)</label></td>
-                    <td><label>Quantity  </label></td>
+                    <td><label>Quantity </label></td>
                     <td><label>Chopping Style</label></td>
                     <td><label>Cart</label></td>
                 </tr>
@@ -546,7 +566,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 <tr cellSpacing=20>
                     <td align="left">
-                        <label >Ladies Finger</label>
+                        <label>Ladies Finger</label>
                         <img src="images/Ladies_Finger.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
@@ -693,7 +713,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             </label>
                         </select>
                     </td>
-                    <td >
+                    <td>
                         <select id="Drumstick_cut" title="Style">
                             <option value="Julienne">Julienne</option>
                         </select>
@@ -1069,7 +1089,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>
                         <select id="Curry_Coriander_cut" title="Style">
                             <option value="Leaves">Leaves</option>
-                            </select>
+                        </select>
                     </td>
                     <td>
                         <button id="add_Curry_Coriander" onclick="addVegetable(this)">Add to Cart</button>
@@ -1100,7 +1120,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>
                         <select id="Fried_Rice_cut" title="Style">
                             <option value="Mixed Cuts">Mixed Cuts</option>
-                            </select>
+                        </select>
                     </td>
                     <td>
                         <button id="add_Fried_Rice" onclick="addVegetable (this)">Add to Cart</button>
