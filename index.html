@@ -9,6 +9,7 @@
         table {
             border-collapse: collapse;
             /* Ensures padding applies within borders */
+            text-align: center;
         }
 
 
@@ -25,6 +26,7 @@
             /* Example padding value */
             font-family: Arial, sans-serif;
             font-weight: bold;
+            text-align: "center";
             /*background-color: #eafae1;*/
         }
 
@@ -125,6 +127,7 @@
     </style>
     <script>
         var userdetails, orderdetails, messagetext, itemcount, total ;
+        var datemessage;
 document.addEventListener("DOMContentLoaded", function() {
 
         itemcount = 0;
@@ -140,8 +143,9 @@ document.addEventListener("DOMContentLoaded", function() {
         let yyyy = today.getFullYear();
         let formattedDate = dd + '/' + mmm + '/' + yyyy;
         // Display Date in Delivery Slot label
-        var slot = document.getElementById("slot");
-        slot.innerHTML = "Delivery on " + formattedDate + " by :";        
+        var slot = document.getElementById("slot");         
+        datemessage = "Delivery on " + formattedDate + " by :";   
+        slot.innerHTML = datemessage;     
 
 });
 
@@ -188,9 +192,9 @@ document.addEventListener("DOMContentLoaded", function() {
             //Read Delivery Slot selected by User  
             const delcell = deltab.rows[0].cells[1];
             const delslot = delcell.childNodes[1].value;
-            userdetails += "\n" + "Delivery Slot: " + delslot + "\n";
+            userdetails += "\n" + datemessage + " " + delslot + "\n";
             messagetext += userdetails + "\n";
-            messagetext += "\n" + "Your order for today: " + "\n";
+            //messagetext += "\n" + "Your order for today: " + "\n";
             orderdetails += "\n" + "Total Amount: " + total + "\n";
 
 
@@ -222,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const vegstyle = stylecell.childNodes[1].value;
                 //get Price
                 const pricecell = table.rows[currow].cells[2];
-                var itemprice = pricecell.innerText.substring(3);
+                var itemprice = pricecell.innerText;
                 itemprice = Number(itemprice);
                 let itemqty = Number(qty);
                 var itemtotal = itemprice * itemqty;
@@ -290,9 +294,9 @@ document.addEventListener("DOMContentLoaded", function() {
         <!-- <p>Please enter your Name, phone number & Address. Select the vegetables, Required Quantity and Chopping Style: </p> -->
 
         <form onsubmit="return false">
-            <Table id="delslot" class="user" width="100%">
+            <table id="delslot" class="user" width="100%">
                 <tr>
-                    <td>
+                    <td align="left">
                         <label id="slot"></label>
                     </td>
                     <td colspan="2">
@@ -307,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <!-- <td>
                         <label for="name">Name:</label>
                     </td> -->
-                    <td>
+                    <td align="left">
                         <label>Customer Details:</label>
 
                     </td>
@@ -315,13 +319,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         <label for="phone">Mobile:</label>
                     </td> -->
                     <td colspan="2">
-                        <input type="text" id="name" name="name" placeholder="Please Enter Name" required>
+                        <input type="text" id="name" name="name" placeholder="Please Enter Name">
                         <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
-                            placeholder="Please Enter Mobile Number" required>
+                            placeholder="Please Enter Mobile Number">
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td align="left">
                         <label for="address">Customer Address:</label>
                     </td>
                     <td colspan="2">
@@ -356,11 +360,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td align="left">
                         <label>No. of Items in Cart</label>
                         <label id="itemcount"></label>
                     </td>
-                    <td>
+                    <td align="left">
                         <label>Total Cart Value (Rs.)</label>
                         <label id="itemtotal"></label>
                     </td>                    
@@ -378,25 +382,25 @@ document.addEventListener("DOMContentLoaded", function() {
             </table>
             <!-- <label>Vegetables:</label><br>
             <input type="checkbox" id="vegetable1" name="vegetable" value="Carrot"> -->
-            <Table id="veglist" border="1" class="slyzecolor">
+            <Table id="veglist" border="1" class="slyzecolor" table-layout="auto">
                 <tr>
                     <td>Vegetable</td>
-                    <td>Weight</td>
-                    <td>Price</td>
+                    <td>Weight(gms.)</td>
+                    <td>Price(Rs.)</td>
                     <td>Quantity</td>
                     <td>Style</td>
                     <td>Cart</td>
                 </tr>                
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Beetroot - Peeled</label>
                         <img src="images/Beetroot.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.45</label>
+                        <label>45</label>
                     </td>
                     <td>
                         <select id="Beetroot_qty" title="Quantity">
@@ -420,15 +424,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Bitter Gourd</label>
                         <img src="images/Bitter_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.45</label>
+                        <label>45</label>
                     </td>
                     <td>
                         <select id="Bitter_Gourd_qty" title="Quantity">
@@ -450,15 +454,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Bottle Gourd - Peeled</label>
                         <img src="images/Bottle_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.38</label>
+                        <label>38</label>
                     </td>
                     <td>
                         <select id="Bottle_Gourd _qty" title="Quantity">
@@ -480,15 +484,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Broad Beans</label>
                         <img src="images/Broad_Beans.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.48</label>
+                        <label>48</label>
                     </td>
                     <td>
                         <select id="Broad_Beans_qty" title="Quantity">
@@ -510,15 +514,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Cabbage</label>
                         <img src="images/Cabbage.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.33</label>
+                        <label>33</label>
                     </td>
                     <td>
                         <select id="Cabbage_qty" title="Quantity">
@@ -539,15 +543,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Capsicum</label>
                         <img src="images/Capsicum.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.36</label>
+                        <label>36</label>
                     </td>
                     <td>
                         <select id="Capsicum_qty" title="Quantity">
@@ -570,15 +574,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Carrot - Peeled</label>
                         <img src="images/Carrot.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.52</label>
+                        <label>52</label>
                     </td>
                     <td>
                         <select id="Carrot_qty" title="Quantity">
@@ -602,15 +606,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Chow Chow Peeled</label>
                         <img src="images/Chow_Chow.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.29</label>
+                        <label>29</label>
                     </td>
                     <td>
                         <select id="Chow_Chow_qty" title="Quantity">
@@ -631,15 +635,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Cucumber - Peeled</label>
                         <img src="images/Cucumber.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.43</label>
+                        <label>43</label>
                     </td>
                     <td>
                         <select id="Cucumber_qty" title="Quantity">
@@ -662,15 +666,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Curry + Coriander leaves combo</label>
                         <img src="images/Curry_Coriander.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.10</label>
+                        <label>10</label>
                     </td>
                     <td>
                         <select id="Curry_Coriander_qty" title="Quantity">
@@ -691,15 +695,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Drumstick</label>
                         <img src="images/Drumstick.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.25</label>
+                        <label>25</label>
                     </td>
                     <td>
                         <select id="Drumstick_qty" title="Quantity">
@@ -710,7 +714,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             </label>
                         </select>
                     </td>
-                    <td>
+                    <td >
                         <select id="Drumstick_cut" title="Style">
                             <option value="Julienne">Julienne</option>
                         </select>
@@ -720,15 +724,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Fried Rice Combo</label>
                         <img src="images/Fried_Rice.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.62</label>
+                        <label>62</label>
                     </td>
                     <td>
                         <select id="Fried_Rice_qty" title="Quantity">
@@ -749,15 +753,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Green Beans</label>
                         <img src="images/Green_Beans.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.32</label>
+                        <label>32</label>
                     </td>
                     <td>
                         <select id="Green_Beans_qty" title="Quantity">
@@ -779,15 +783,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Ivy Gourd</label>
                         <img src="images/Ivy_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.58</label>
+                        <label>58</label>
                     </td>
                     <td>
                         <select id="Ivy_Gourd_qty" title="Quantity">
@@ -810,15 +814,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
-                        <label>Ladies Finger</label>
+                    <td align="left">
+                        <label >Ladies Finger</label>
                         <img src="images/Ladies_Finger.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.56</label>
+                        <label>56</label>
                     </td>
                     <td>
                         <select id="Ladies_Finger_qty" title="Quantity">
@@ -840,15 +844,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Onion - Peeled</label>
                         <img src="images/Onion.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.53</label>
+                        <label>53</label>
                     </td>
                     <td>
                         <select id="Onion_qty" title="Quantity">
@@ -871,15 +875,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Potato - Peeled</label>
                         <img src="images/Potato.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.34</label>
+                        <label>34</label>
                     </td>
                     <td>
                         <select id="Potato_qty" title="Quantity">
@@ -902,15 +906,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Ridge Gourd - Peeled</label>
                         <img src="images/Ridge_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.45</label>
+                        <label>45</label>
                     </td>
                     <td>
                         <select id="Ridge_Gourd_qty" title="Quantity">
@@ -931,15 +935,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Snake Gourd</label>
                         <img src="images/Snake_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.37</label>
+                        <label>37</label>
                     </td>
                     <td>
                         <select id="Snake_Gourd_qty" title="Quantity">
@@ -960,15 +964,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Tomato</label>
                         <img src="images/Tomato.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.45</label>
+                        <label>45</label>
                     </td>
                     <td>
                         <select id="Tomato_qty" title="Quantity">
@@ -990,15 +994,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Veg Salad Pack</label>
                         <img src="images/Veg_Salad.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.45</label>
+                        <label>45</label>
                     </td>
                     <td>
                         <select id="Veg_Salad" title="Quantity">
@@ -1019,15 +1023,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     </td>
                 </tr>
                 <tr cellSpacing=20>
-                    <td>
+                    <td align="left">
                         <label>Yellow Cucumber - Peeled</label>
                         <img src="images/Yellow_Cucumber.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250Gms</label>
+                        <label>250</label>
                     </td>
                     <td>
-                        <label>Rs.29</label>
+                        <label>29</label>
                     </td>
                     <td>
                         <select id="Yellow_Cucumber_qty" title="Quantity">
@@ -1047,7 +1051,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <button id="add_Yellow_Cucumber" onclick="addVegetable(this)">Add to Cart</button>
                     </td>
                 </tr>
-            </Table>
+            </table>
             <!-- <br>
             <input type="checkbox" id="vegetable2" name="vegetable" value="Broccoli">
             <label for="vegetable2">Broccoli</label>
