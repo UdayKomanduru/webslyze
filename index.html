@@ -132,10 +132,11 @@
         }
     </style>
     <script>
-        var userdetails, orderdetails, messagetext, itemcount, total;
-        var datemessage;
+        //  Global Variable Decleration
+        var userdetails, orderdetails, messagetext, itemcount, total, datemessage;
+        //Function to set initial values on document load. 
         document.addEventListener("DOMContentLoaded", function () {
-
+            // Setting Initial values for variables;
             itemcount = 0;
             total = 0;
             userdetails = "";
@@ -154,13 +155,17 @@
             slot.innerHTML = datemessage;
 
         });
-
+        // Function to value User Details
         function validate_input() {
+            // Get the value from field Name.
             var name = document.getElementById('name').value.trim();
+            // Validate user name
             if (name == "") { alert("Please enter your name"); Retrun; }
+            // Get the value of user phone number
             var phoneNumber = document.getElementById('phone').value.trim();
+            // validate user phone number
             if (phoneNumber == "") { alert("Please enter your Mobile Number"); Retrun; }
-            // Add address details to the message
+            //Get Address field details and validate each field.
             var flatNumber = document.getElementById('flat').value.trim();
             if (flatNumber == "") { alert("Please enter your Flat Details"); Retrun; }
             var building = document.getElementById('building').value.trim();
@@ -170,21 +175,25 @@
             var landmark = document.getElementById('landmark').value.trim();
             if (landmark == "") { alert("Please enter your Location Landmark"); Retrun; }
             userdetails = "";
+            // Add User's Name and Mobile details to message
             userdetails += "Name: " + name + "\n";
             userdetails += "Mobile: " + phoneNumber + "\n";
-            userdetails += "Address:\n";
+            // Add User's address details to the message
+            userdetails += "Address:\n";            
             userdetails += flatNumber + "\n";
             userdetails += building + "\n";
             userdetails += streetAddress + "\n";
             userdetails += landmark + "\n";
 
         }
-
+        // validate the cart if cart is empty
         function validate_cart() {
+            // Validate if cart is empty
             if (itemcount == 0) {
                 alert("Your Cart is Empty. Please add items to cart");
                 Return;
             }
+            // validate whether total amount is less than Rs.100 
             if (total < 100) {
                 alert("Minimum order value is Rs.100");
                 Return;
@@ -192,8 +201,7 @@
 
 
         }
-
-
+        // Function to Submit data to whatsapp
         function submitToWhatsApp() {
             // Validate User Details
             validate_input();
@@ -300,8 +308,8 @@
                 var title = curbutton.innerText;
                 if (title == "Add to Cart") {
                     itemcount++;
-                    if (itemcount == 1) {
-                        orderdetails += "Vegetable  || Style || Qty || Total" + "\n" + "_______________________________" + "\n";
+                    if (itemcount == 1) {                                                
+                        orderdetails = "Vegetable  || Style || Qty || Total" + "\n" + "_______________________________" + "\n";
                     }
                     // concatenate the values and add it to final message
                     let curItem = vegname + " || " + vegstyle + " || " + qty + " || " + itemtotal;
@@ -340,6 +348,7 @@
                 alert("Select required quantity and Add to cart");
             }
             curbutton.addEventListener('click', function (event) {
+            // To Stop the page refresh after clikcing add to cart button
                 event.preventDefault();
             });
         }
@@ -347,9 +356,9 @@
 </head>
 
 <body>
-    <header>
+    <!-- <header> -->
         <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-family='Verdana' font-size='35' fill='blue'%3ESlyze%3C/text%3E%3C/svg%3E" alt="Slyze Logo"> -->
-    </header>
+    <!-- </header> -->
     <div class="container">
         <table width="100%" border="1">
             <tr>
