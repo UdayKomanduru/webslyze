@@ -220,6 +220,8 @@
             messagetext += userdetails + "\n";
             // Add Total Amout of the cart to Order Details
             orderdetails += "\n" + "Total Amount: " + total + "\n";
+            // Add Total Item Count of the cart to Order details
+            orderdetails += "\n" + "Total Items: " + itemcount + "\n";
             // Add Order Details to the Message
             messagetext += orderdetails + "\n";
             messagetext = messagetext.replace(/^\s*\n/gm, "");
@@ -437,8 +439,8 @@
                         <label id="itemtotal"></label>
                     </td>
                     <td>
-                        <button class="submit" type="button" onclick="submitToWhatsApp()">Order on WhatsApp</button>
-                        <button class="submit" type="button" onclick="resetcart()">Reset Cart</button>
+                        <button class="button" type="button" onclick="submitToWhatsApp()">Order on WhatsApp</button>
+                        <button class="button" type="button" onclick="resetcart()">Reset Cart</button>
                     </td>
                 </tr>
             </Table>
