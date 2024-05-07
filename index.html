@@ -5,363 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vegetable Purchase - Slyze</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            /* Ensures padding applies within borders */
-            text-align: center;
-        }
-
-
-        th {
-            padding: 5px;
-            /* Example padding value */
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            /*background-color: #eafae1;*/
-        }
-
-        td {
-            padding: 2px;
-            /* Example padding value */
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            text-align: "center";
-            /*background-color: #eafae1;*/
-        }
-
-        /* Target even rows (background-color can be changed) */
-        table.slyzecolor tr:nth-child(even) {
-            background-color: rgb(156, 199, 235);
-        }
-
-        /* Target odd rows (background-color can be changed) */
-        table.slyzecolor tr:nth-child(odd) {
-            background-color: rgb(215, 225, 233);
-        }
-
-        table.user {
-            background-color: rgb(156, 199, 235);
-        }
-
-        td.title {
-            background-color: rgb(156, 199, 235);
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            /* background-color: #eafae1; */
-            /* Smooth and light green background color */
-        }
-
-        header {
-            text-align: center;
-            padding: 10px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #FFFFFF;
-            /* White background color */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h3 {
-            text-align: center;
-        }
-
-        form {
-            margin-top: 1px;
-        }
-
-        label {
-            /*display: block;*/
-            /*font-weight: bold;*/
-            font-size: 12px;
-        }
-
-        input[type="text"],
-        input[type="tel"] {
-            width: 100%;
-            padding: 1px;
-            margin-bottom: 1px;
-            border: 1px solid #ccc;
-            border-radius: 1px;
-        }
-
-        select {
-            width: 100%;
-            padding: 1px;
-            margin-bottom: 0.5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 1px 2px;
-            background-color: #007BFF;
-            /* Blue button color */
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button.submit {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            /* Blue button color */
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-            /* Darker blue on hover */
-        }
-
-        .postal-code {
-            width: 100%;
-        }
-    </style>
-    <script>
-        //  Global Variable Decleration
-        var userdetails, orderdetails, messagetext, itemcount, total, datemessage;
-        //Function to set initial values on document load. 
-        document.addEventListener("DOMContentLoaded", function () {
-            // Setting Initial values for variables;
-            itemcount = 0;
-            total = 0;
-            userdetails = "";
-            orderdetails = "";
-            messagetext = "";
-            // Get Current Date details       
-            let today = new Date();
-            let dd = today.getDate() + 1;
-            let mmm = today.toLocaleString('default', { month: 'short' });
-            //let mm = today.getMonth() + 1; //January is 0!
-            let yyyy = today.getFullYear();
-            let formattedDate = dd + '/' + mmm + '/' + yyyy;
-            // Display Date in Delivery Slot label
-            var slot = document.getElementById("slot");
-            datemessage = "Delivery on " + formattedDate + " by :";
-            slot.innerHTML = datemessage;
-
-        });
-        // Function to value User Details
-        function validate_input() {
-            // Get the value from field Name.
-            var name = document.getElementById('name').value.trim();
-            // Validate user name
-            if (name == "") { alert("Please enter your name"); Retrun; }
-            // Get the value of user phone number
-            var phoneNumber = document.getElementById('phone').value.trim();
-            // validate user phone number
-            if (phoneNumber == "") { alert("Please enter your Mobile Number"); Retrun; }
-            //Get Address field details and validate each field.
-            var flatNumber = document.getElementById('flat').value.trim();
-            if (flatNumber == "") { alert("Please enter your Flat Details"); Retrun; }
-            var building = document.getElementById('building').value.trim();
-            if (building == "") { alert("Please enter your Apartment/Building Details"); Retrun; }
-            var streetAddress = document.getElementById('street-address').value.trim();
-            if (streetAddress == "") { alert("Please enter your Street Details"); Retrun; }
-            var landmark = document.getElementById('landmark').value.trim();
-            if (landmark == "") { alert("Please enter your Location Landmark"); Retrun; }
-            userdetails = "";
-            // Add User's Name and Mobile details to message
-            userdetails += "Name: " + name + "\n";
-            userdetails += "Mobile: " + phoneNumber + "\n";
-            // Add User's address details to the message
-            userdetails += "Address:\n";            
-            userdetails += flatNumber + "\n";
-            userdetails += building + "\n";
-            userdetails += streetAddress + "\n";
-            userdetails += landmark + "\n";
-
-        }
-        // validate the cart if cart is empty
-        function validate_cart() {
-            // Validate if cart is empty
-            if (itemcount == 0) {
-                alert("Your Cart is Empty. Please add items to cart");
-                Return;
-            }
-            // validate whether total amount is less than Rs.100 
-            if (total < 100) {
-                alert("Minimum order value is Rs.100");
-                Return;
-            }
-
-
-        }
-        // Function to Submit data to whatsapp
-        function submitToWhatsApp() {
-            // Validate User Details
-            validate_input();
-            // Validate Cart Details
-            validate_cart();
-            // Validating Order Details        
-            if (orderdetails == "") {
-                alert("Add Vegetables to cart and place the order");
-                Return;
-            }
-            else {
-                orderdetails.replace(/^\s*\n/gm, "");
-            }
-
-
-            // Get Delivery Slot details                        
-            const deltab = document.getElementById("delslot");
-            //Read Delivery Slot selected by User  
-            const delcell = deltab.rows[0].cells[1];
-            const delslot = delcell.childNodes[1].value;
-            // Add Delivery Slot details to User Details
-            userdetails += "\n" + datemessage + " " + delslot + "\n";
-            // Add User Details and Delivery Slot details to Message            
-            messagetext += userdetails + "\n";
-            // Add Total Amout of the cart to Order Details
-            orderdetails += "\n" + "Total Amount: " + total + "\n";
-            // Add Total Item Count of the cart to Order details
-            orderdetails += "\n" + "Total Items: " + itemcount + "\n";
-            // Add Order Details to the Message
-            messagetext += orderdetails + "\n";
-            messagetext = messagetext.replace(/^\s*\n/gm, "");
-            // URL Encode the final message text            
-            messagetext = encodeURIComponent(messagetext);
-            // Construct WhatsApp link with pre-filled message
-            var whatsappLink = "https://wa.me/919176693332?text=" + messagetext; // Replace 'whatsappphonenumber' with actual phone number
-            // Redirect to WhatsApp
-            window.location.href = whatsappLink;
-        }
-
-        function resetcart() {
-            // Read Vegetable Table
-            const table = document.getElementById("veglist");
-            //Reset Cart table
-            for (i = 1; i < 23; i++) {
-                // read Qty, Style cell, Add/Remove cart button from each row of the table   
-                const qtycell = table.rows[i].cells[3];
-                const stylecell = table.rows[i].cells[4];
-                const buttoncell = table.rows[i].cells[5];
-                
-                // Resetting the dropdown values of quantity and style
-                qtycell.childNodes[1].selectedIndex = 0;
-                stylecell.childNodes[1].selectedIndex = 0;
-                buttoncell.childNodes[1].innerText = "Add to Cart";
-
-                //enable the quantity and style cells                                    
-                qtycell.childNodes[1].disabled = false;
-                stylecell.childNodes[1].disabled = false;
-
-
-            }
-            // Reset Cart Total and Cart Item Count
-            itemcount = 0;
-            total = 0.
-            orderdetails = "";
-            messagetext = "";
-
-            // Display Cart details
-            var cartcount = document.getElementById("itemcount");
-            cartcount.innerHTML = itemcount;
-
-            var carttotal = document.getElementById("itemtotal");
-            carttotal.innerHTML = total;
-        }
-
-        function addVegetable(curbutton) {
-            // Get Current Button Row ID in the table    
-            var currow = curbutton.parentNode.parentNode.rowIndex;
-            // Get Details from the table for the current row
-            const table = document.getElementById("veglist");
-            // Read Quanaity selected by the user   
-            const qtycell = table.rows[currow].cells[3];
-            const qty = qtycell.childNodes[1].value;
-            // Add details to the order only when the quantity is non-zero   
-            if (qty != "0") {
-                //get vegetable name    
-                const vegcell = table.rows[currow].cells[0];
-                const vegname = vegcell.innerText.trim();
-                //get style
-                const stylecell = table.rows[currow].cells[4];
-                const vegstyle = stylecell.childNodes[1].value.trim();
-                //get Price
-                const pricecell = table.rows[currow].cells[2];
-                var itemprice = pricecell.innerText;
-                itemprice = Number(itemprice);
-                let itemqty = Number(qty);
-                var itemtotal = itemprice * itemqty;
-
-                // Disable Quantity and Style Cells
-                qtycell.childNodes[1].disabled = true;
-                stylecell.childNodes[1].disabled = true;
-
-
-                // Check whether we need to add/remove from cart
-                var title = curbutton.innerText;
-                // when Item is being added
-                if (title == "Add to Cart") {
-                    // increment Item count
-                    itemcount++;
-                    //when first Item is being added, add header to the message
-                    if (itemcount == 1) {                                                
-                        orderdetails = "Vegetable || Style || Qty || Total" + "\n" + "_______________________________" + "\n";
-                    }
-                    // concatenate the values and add it to final message
-                    let curItem = vegname + " || " + vegstyle + " || " + qty + " || " + itemtotal;
-                    orderdetails = orderdetails + "\n" + curItem;
-                    curbutton.innerText = "Remove from Cart";
-                    //alert(orderdetails);
-                    total += itemtotal;
-                }
-                else if (title == "Remove from Cart") {
-                    // concatenate the values and add it to final message
-                    itemcount--;
-                    // let remItem = vegname + " || " + vegstyle + " || " + qty + " || " + itemtotal;
-                    let remItem = vegname+"||"+vegstyle+"||"+qty+"||"+itemtotal;
-                    orderdetails = orderdetails.replace(remItem, "");
-                    curbutton.innerText = "Add to Cart";
-                    //alert(orderdetails);
-                    total -= itemtotal;
-
-                    // Enable Quantity and Style Cells
-                    qtycell.childNodes[1].disabled = false;
-                    stylecell.childNodes[1].disabled = false;
-
-                    // Resetting the dropdown values of quantity and style
-                    qtycell.childNodes[1].selectedIndex = 0;
-                    stylecell.childNodes[1].selectedIndex = 0;
-
-                }
-                // Display Cart details
-                var cartcount = document.getElementById("itemcount");
-                cartcount.innerHTML = itemcount;
-
-                var carttotal = document.getElementById("itemtotal");
-                carttotal.innerHTML = total;
-
-            }
-            else {
-                alert("Select required quantity and Add to cart");
-            }
-            curbutton.addEventListener('click', function (event) {
-            // To Stop the page refresh after clikcing add to cart button
-                event.preventDefault();
-            });
-        }
-    </script>
+    <script src="slyzevalues.js"></script>
+    <script src="slyzescript.js"></script>    
+    <link rel="stylesheet" href="slyzestyle.css">
 </head>
 
 <body>
     <!-- <header> -->
-        <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-family='Verdana' font-size='35' fill='blue'%3ESlyze%3C/text%3E%3C/svg%3E" alt="Slyze Logo"> -->
+    <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-family='Verdana' font-size='35' fill='blue'%3ESlyze%3C/text%3E%3C/svg%3E" alt="Slyze Logo"> -->
     <!-- </header> -->
     <div class="container">
         <table width="100%" border="1">
@@ -403,7 +54,7 @@
                     </td> -->
                     <td colspan="2">
                         <input type="text" id="name" name="name" placeholder="Please Enter Name">
-                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" onblur="validateField(this)"
                             placeholder="Please Enter Mobile Number">
                     </td>
                 </tr>
@@ -484,10 +135,10 @@
                         <img src="images/Tomato.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="tomatoweight"></label>
                     </td>
                     <td>
-                        <label>45</label>
+                        <label id="tomatoprice"></label>
                     </td>
                     <td>
                         <select id="Tomato_qty" title="Quantity">
@@ -517,10 +168,10 @@
                         <img src="images/Potato.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="potatoweight">250</label>
                     </td>
                     <td>
-                        <label>34</label>
+                        <label id="potatoprice">34</label>
                     </td>
                     <td>
                         <select id="Potato_qty" title="Quantity">
@@ -551,10 +202,10 @@
                         <img src="images/Onion.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="onionweight"></label>
                     </td>
                     <td>
-                        <label>53</label>
+                        <label id="onionprice"></label>
                     </td>
                     <td>
                         <select id="Onion_qty" title="Quantity">
@@ -585,10 +236,10 @@
                         <img src="images/Ladies_Finger.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="ladysfingerweight"></label>
                     </td>
                     <td>
-                        <label>56</label>
+                        <label id="ladysfingerprice"></label>
                     </td>
                     <td>
                         <select id="Ladies_Finger_qty" title="Quantity">
@@ -617,10 +268,10 @@
                         <img src="images/Ivy_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="ivygourdweight"></label>
                     </td>
                     <td>
-                        <label>58</label>
+                        <label id="ivygourdprice"></label>
                     </td>
                     <td>
                         <select id="Ivy_Gourd_qty" title="Quantity">
@@ -651,10 +302,10 @@
                         <img src="images/Carrot.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="carrotweight"></label>
                     </td>
                     <td>
-                        <label>52</label>
+                        <label id="carrotprice"></label>
                     </td>
                     <td>
                         <select id="Carrot_qty" title="Quantity">
@@ -684,10 +335,10 @@
                         <img src="images/Cabbage.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="cabbageweight"></label>
                     </td>
                     <td>
-                        <label>33</label>
+                        <label id="cabbageprice"></label>
                     </td>
                     <td>
                         <select id="Cabbage_qty" title="Quantity">
@@ -714,10 +365,10 @@
                         <img src="images/Drumstick.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="drumstickweight"></label>
                     </td>
                     <td>
-                        <label>25</label>
+                        <label id="drumstickprice"></label>
                     </td>
                     <td>
                         <select id="Drumstick_qty" title="Quantity">
@@ -744,10 +395,10 @@
                         <img src="images/Green_Beans.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="greenbeansweight"></label>
                     </td>
                     <td>
-                        <label>32</label>
+                        <label id="greenbeansprice"></label>
                     </td>
                     <td>
                         <select id="Green_Beans_qty" title="Quantity">
@@ -775,10 +426,10 @@
                         <img src="images/Broad_Beans.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="broadbeansweight"></label>
                     </td>
                     <td>
-                        <label>48</label>
+                        <label id="broadbeansprice"></label>
                     </td>
                     <td>
                         <select id="Broad_Beans_qty" title="Quantity">
@@ -806,10 +457,10 @@
                         <img src="images/Beetroot.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="beetrootweight"></label>
                     </td>
                     <td>
-                        <label>45</label>
+                        <label id="beetrootprice"></label>
                     </td>
                     <td>
                         <select id="Beetroot_qty" title="Quantity">
@@ -839,10 +490,10 @@
                         <img src="images/Capsicum.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="capsicumweight"></label>
                     </td>
                     <td>
-                        <label>36</label>
+                        <label id="capsicumprice"></label>
                     </td>
                     <td>
                         <select id="Capsicum_qty" title="Quantity">
@@ -871,10 +522,10 @@
                         <img src="images/Cucumber.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="cucumberweight"></label>
                     </td>
                     <td>
-                        <label>43</label>
+                        <label id="cucumberprice"></label>
                     </td>
                     <td>
                         <select id="Cucumber_qty" title="Quantity">
@@ -903,10 +554,10 @@
                         <img src="images/Ridge_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="ridgegourdweight"></label>
                     </td>
                     <td>
-                        <label>45</label>
+                        <label id="ridgegourdprice"></label>
                     </td>
                     <td>
                         <select id="Ridge_Gourd_qty" title="Quantity">
@@ -933,10 +584,10 @@
                         <img src="images/Bitter_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="bittergourdweight"></label>
                     </td>
                     <td>
-                        <label>45</label>
+                        <label id="bittergourdprice"></label>
                     </td>
                     <td>
                         <select id="Bitter_Gourd_qty" title="Quantity">
@@ -965,10 +616,10 @@
                         <img src="images/Bottle_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="bottlegourdweight"></label>
                     </td>
                     <td>
-                        <label>38</label>
+                        <label id="bottlegourdprice"></label>
                     </td>
                     <td>
                         <select id="Bottle_Gourd _qty" title="Quantity">
@@ -997,10 +648,10 @@
                         <img src="images/Snake_Gourd.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="snakegourdweight"></label>
                     </td>
                     <td>
-                        <label>37</label>
+                        <label id="snakegourdprice"></label>
                     </td>
                     <td>
                         <select id="Snake_Gourd_qty" title="Quantity">
@@ -1027,10 +678,10 @@
                         <img src="images/Chow_Chow.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="chowchowweight"></label>
                     </td>
                     <td>
-                        <label>29</label>
+                        <label id="chowchowprice"></label>
                     </td>
                     <td>
                         <select id="Chow_Chow_qty" title="Quantity">
@@ -1057,10 +708,10 @@
                         <img src="images/Yellow_Cucumber.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="yellowcucumberweight"></label>
                     </td>
                     <td>
-                        <label>29</label>
+                        <label id="yellowcucumberprice"></label>
                     </td>
                     <td>
                         <select id="Yellow_Cucumber_qty" title="Quantity">
@@ -1087,10 +738,10 @@
                         <img src="images/Curry_Coriander.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="currycorianderweight">250</label>
                     </td>
                     <td>
-                        <label>10</label>
+                        <label id="currycorianderprice"></label>
                     </td>
                     <td>
                         <select id="Curry_Coriander_qty" title="Quantity">
@@ -1118,10 +769,10 @@
                         <img src="images/Fried_Rice.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="friedricecomboweight"></label>
                     </td>
                     <td>
-                        <label>62</label>
+                        <label id="friedricecomboprice"></label>
                     </td>
                     <td>
                         <select id="Fried_Rice_qty" title="Quantity">
@@ -1148,10 +799,10 @@
                         <img src="images/Veg_Salad.png" alt="Your Logo" width="40px">
                     </td>
                     <td>
-                        <label>250</label>
+                        <label id="vegsaladpackweight"></label>
                     </td>
                     <td>
-                        <label>45</label>
+                        <label id="vegsaladpackprice"></label>
                     </td>
                     <td>
                         <select id="Veg_Salad" title="Quantity">
