@@ -1,0 +1,126 @@
+    table {
+            border-collapse: collapse;
+            /* Ensures padding applies within borders */
+            text-align: center;
+        }
+
+
+        th {
+            padding: 5px;
+            /* Example padding value */
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            /*background-color: #eafae1;*/
+        }
+
+        td {
+            padding: 2px;
+            /* Example padding value */
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-align: "center";
+            /*background-color: #eafae1;*/
+        }
+
+        /* Target even rows (background-color can be changed) */
+        table.slyzecolor tr:nth-child(even) {
+            background-color: rgb(156, 199, 235);
+        }
+
+        /* Target odd rows (background-color can be changed) */
+        table.slyzecolor tr:nth-child(odd) {
+            background-color: rgb(215, 225, 233);
+        }
+
+        table.user {
+            background-color: rgb(156, 199, 235);
+        }
+
+        td.title {
+            background-color: rgb(156, 199, 235);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            /* background-color: #eafae1; */
+            /* Smooth and light green background color */
+        }
+
+        header {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            /* White background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 1px;
+        }
+
+        label {
+            /*display: block;*/
+            /*font-weight: bold;*/
+            font-size: 12px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 1px;
+            margin-bottom: 1px;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+        }
+
+        select {
+            width: 100%;
+            padding: 1px;
+            margin-bottom: 0.5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 1px 2px;
+            background-color: #007BFF;
+            /* Blue button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.submit {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            /* Blue button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            /* Darker blue on hover */
+        }
+
+        .postal-code {
+            width: 100%;
+        }
+    
