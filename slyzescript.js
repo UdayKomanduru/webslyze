@@ -8,13 +8,16 @@
             total = 0;
             userdetails = "";
             orderdetails = "";
-            messagetext = "";            
+            messagetext = "";        
+            //testing
+            assignvalues();            
             // Get Current Date details   
             assigndate();                
             // assign vegetable prices
             assignpriceandweight();
 
         });
+
         // Function to value User Details
         function validate_input() {
             // Get the value from field Name.
@@ -145,7 +148,9 @@
             const table = document.getElementById("veglist");
             // Read Quanaity selected by the user   
             const qtycell = table.rows[currow].cells[3];
-            const qty = qtycell.childNodes[1].value;
+            //const qty = qtycell.childNodes[1].value;
+            // changed in dynamic local version from 1 to 0
+            const qty = qtycell.childNodes[0].value;
             // Add details to the order only when the quantity is non-zero   
             if (qty != "0") {
                 //get vegetable name    
@@ -153,7 +158,9 @@
                 const vegname = vegcell.innerText.trim();
                 //get style
                 const stylecell = table.rows[currow].cells[4];
-                const vegstyle = stylecell.childNodes[1].value.trim();
+                //const vegstyle = stylecell.childNodes[1].value.trim();
+                // changed in dynamic local version from 1 to 0
+                const vegstyle = stylecell.childNodes[0].value.trim();
                 //get Price
                 const pricecell = table.rows[currow].cells[2];
                 var itemprice = pricecell.innerText;
@@ -161,9 +168,10 @@
                 let itemqty = Number(qty);
                 var itemtotal = itemprice * itemqty;
 
+                // changed from 1 to 0 in dynamic
                 // Disable Quantity and Style Cells
-                qtycell.childNodes[1].disabled = true;
-                stylecell.childNodes[1].disabled = true;
+                qtycell.childNodes[0].disabled = true;
+                stylecell.childNodes[0].disabled = true;
 
 
                 // Check whether we need to add/remove from cart
@@ -194,12 +202,13 @@
                     total -= itemtotal;
 
                     // Enable Quantity and Style Cells
-                    qtycell.childNodes[1].disabled = false;
-                    stylecell.childNodes[1].disabled = false;
+                    // Changed from 1 to 0 in dynamic
+                    qtycell.childNodes[0].disabled = false;
+                    stylecell.childNodes[0].disabled = false;
 
                     // Resetting the dropdown values of quantity and style
-                    qtycell.childNodes[1].selectedIndex = 0;
-                    stylecell.childNodes[1].selectedIndex = 0;
+                    qtycell.childNodes[0].selectedIndex = 0;
+                    stylecell.childNodes[0].selectedIndex = 0;
 
                 }
                 // Display Cart details
@@ -236,3 +245,4 @@
             // If validation passes, return true (optional)
             return true;
         }
+
