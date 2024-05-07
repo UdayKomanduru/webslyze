@@ -73,7 +73,7 @@ function assignvalues() {
         },
 {
             vegname: "carrot",
-            vegtitle: "Carrot - Peeled", imagename: "carrot.png",
+            vegtitle: "Carrot - Peeled", imagename: "Carrot.png",
             weight: defaultweight,
             price: 36,
             quantity: ["-", "1", "2"],
