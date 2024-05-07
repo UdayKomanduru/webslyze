@@ -117,13 +117,13 @@
                 const buttoncell = table.rows[i].cells[5];
 
                 // Resetting the dropdown values of quantity and style
-                qtycell.childNodes[1].selectedIndex = 0;
-                stylecell.childNodes[1].selectedIndex = 0;
-                buttoncell.childNodes[1].innerText = "Add to Cart";
+                qtycell.childNodes[0].selectedIndex = 0;
+                stylecell.childNodes[0].selectedIndex = 0;
+                buttoncell.childNodes[0].innerText = "Add to Cart";
 
                 //enable the quantity and style cells                                    
-                qtycell.childNodes[1].disabled = false;
-                stylecell.childNodes[1].disabled = false;
+                qtycell.childNodes[0].disabled = false;
+                stylecell.childNodes[0].disabled = false;
 
 
             }
