@@ -40,6 +40,10 @@
             background-color: rgb(156, 199, 235);
         }
 
+        label.notes{
+            font-size: xx-small;
+        }
+
         body {
             margin: 0;
             padding: 0;
