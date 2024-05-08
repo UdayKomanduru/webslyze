@@ -24,6 +24,10 @@ function assigndate() {
 }
 
 function assignvalues() {
+
+   //     getExcelValues();
+
+
     //define variables
     var weight_elemnt_id, weight_value;
     var price_element_id, price_value;
@@ -47,7 +51,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
-{
+        {
             vegname: "onion",
             vegtitle: "Onion - Peeled", imagename: "Onion.png",
             weight: defaultweight,
@@ -55,7 +59,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Fine Chopped Granules"]
         },
-{
+        {
             vegname: "ladiesfinger",
             vegtitle: "Ladies Finger", imagename: "Ladies_Finger.png",
             weight: defaultweight,
@@ -63,7 +67,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Fry Cut", "Julienne"]
         },
-{
+        {
             vegname: "ivygourd",
             vegtitle: "Ivy Gourd", imagename: "Ivy_Gourd.png",
             weight: defaultweight,
@@ -71,7 +75,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
-{
+        {
             vegname: "carrot",
             vegtitle: "Carrot - Peeled", imagename: "Carrot.png",
             weight: defaultweight,
@@ -79,7 +83,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Grated", "Julienne"]
         },
-{
+        {
             vegname: "cabbage",
             vegtitle: "Cabbage", imagename: "Cabbage.png",
             weight: defaultweight,
@@ -87,15 +91,15 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Grated"]
         },
-{
+        {
             vegname: "drumstick",
             vegtitle: "Drumstick", imagename: "Drumstick.png",
-            weight: defaultweight,
+            weight: "1 pc",
             price: 20,
             quantity: ["-", "1", "2"],
             style: ["Julienne"]
         },
-{
+        {
             vegname: "greenbeans",
             vegtitle: "Green Beans", imagename: "Green_Beans.png",
             weight: defaultweight,
@@ -103,7 +107,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Diced", "Julienne"]
         },
-{
+        {
             vegname: "braodbeans",
             vegtitle: "Broad Beans", imagename: "Broad_Beans.png",
             weight: defaultweight,
@@ -111,7 +115,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
-{
+        {
             vegname: "beetroot",
             vegtitle: "Beetroot - Peeled", imagename: "Beetroot.png",
             weight: defaultweight,
@@ -119,7 +123,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne", "Grated"]
         },
-{
+        {
             vegname: "capsicum",
             vegtitle: "Capsicum", imagename: "Capsicum.png",
             weight: defaultweight,
@@ -127,7 +131,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
-{
+        {
             vegname: "cucumber",
             vegtitle: "Cucumber - Peeled", imagename: "Cucumber.png",
             weight: defaultweight,
@@ -135,7 +139,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
-{
+        {
             vegname: "ridgegourd",
             vegtitle: "Ridge Gourd - Peeled", imagename: "Ridge_Gourd.png",
             weight: defaultweight,
@@ -143,7 +147,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
-{
+        {
             vegname: "bittergourd",
             vegtitle: "Bitter Gourd", imagename: "Bitter_Gourd.png",
             weight: defaultweight,
@@ -151,7 +155,16 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },
-{
+        {
+            vegname: "bottlegourd",
+            vegtitle: "Bottle Gourd", imagename: "Bottle_Gourd.png",
+            weight: defaultweight,
+            price: 35,
+            quantity: ["-", "1", "2"],
+            style: ["Diced"]
+        },       
+
+        {
             vegname: "snakegourd",
             vegtitle: "Snake Gourd", imagename: "Snake_Gourd.png",
             weight: defaultweight,
@@ -159,7 +172,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
-{
+        {
             vegname: "chowchow",
             vegtitle: "Chow Chow - Peeled", imagename: "Chow_Chow.png",
             weight: defaultweight,
@@ -167,7 +180,7 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
-{
+        {
             vegname: "yellowcucumber",
             vegtitle: "Yellow Cucumber - Peeled", imagename: "Yellow_Cucumber.png",
             weight: defaultweight,
@@ -175,15 +188,15 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
-{
+        {
             vegname: "currycoriander",
             vegtitle: "Curry + Coriander Leaves", imagename: "Curry_Coriander.png",
-            weight: defaultweight,
+            weight: 50,
             price: 20,
             quantity: ["-", "1", "2"],
             style: ["Leaves"]
         },
-{
+        {
             vegname: "friedrice",
             vegtitle: "Fried Rice Combo", imagename: "Fried_Rice.png",
             weight: defaultweight,
@@ -191,14 +204,14 @@ function assignvalues() {
             quantity: ["-", "1", "2"],
             style: ["Mixed Cuts"]
         },
-{
+        {
             vegname: "vegsalad",
             vegtitle: "Veg Salad Pack", imagename: "Veg_Salad.png",
             weight: defaultweight,
             price: 50,
             quantity: ["-", "1", "2"],
             style: ["Sliced"]
-        }     
+        }
     ]
     // Get the reference of Vegetable table
     const vegtable = document.getElementById("veglist");
@@ -208,10 +221,10 @@ function assignvalues() {
             const row = vegtable.insertRow();
             // Cell 1
             // create cell for name and image
-            const namecell = row.insertCell();    
-            namecell.style.textAlign = "left" ;     
+            const namecell = row.insertCell();
+            namecell.style.textAlign = "left";
             // create label element for vegtitle
-            const namelabel = document.createElement("label");            
+            const namelabel = document.createElement("label");
             namelabel.innerHTML = vegetables[i].vegtitle;
             // create image element for vegetable
             const vegimage = document.createElement("img");
@@ -240,7 +253,7 @@ function assignvalues() {
             pricecell.appendChild(pricelabel);
 
             //cell 4
-            const qtycell = row.insertCell();            ;
+            const qtycell = row.insertCell();;
             const qtyselect = document.createElement("select");
             for (val = 0; val < vegetables[i].quantity.length; val++) {
                 const qtyoption = document.createElement('option');
@@ -271,13 +284,30 @@ function assignvalues() {
             const buttoncell = row.insertCell();
             const cartbutton = document.createElement('button');
             cartbutton.innerHTML = "Add to Cart";
-            cartbutton.addEventListener('click', () => { addVegetable(cartbutton)});           
+            cartbutton.addEventListener('click', () => { addVegetable(cartbutton) });
             buttoncell.appendChild(cartbutton);
 
 
         }
     }
 }
+
+/*function getExcelValues() {
+    const Excel = require('exceljs');
+    const workbook = new Excel.Workbook();
+    workbook.xlsx.readFile('vegetables.xlsx').then(() => {
+        const worksheet = workbook.getWorksheet('todaylist');
+        const array = [];
+        for (var i = 0; i < worksheet.rowCount; i++) {
+            const row = worksheet.getRow(i);
+            array.push({
+                name: row.getCell(1).value,
+                age: row.getCell(2).value
+            });
+        }
+        console.log(array);
+    });
+}*/
 
 /* Template
     //assign values for --   

@@ -199,7 +199,7 @@
                     // concatenate the values and add it to final message
                     itemcount--;
                     // let remItem = vegname + " || " + vegstyle + " || " + qty + " || " + itemtotal;
-                    let remItem = vegname + "||" + vegstyle + "||" + qty + "||" + itemtotal;
+                    let remItem = vegname + " || " + vegstyle + " || " + qty + " || " + itemtotal;
                     orderdetails = orderdetails.replace(remItem, "");
                     curbutton.innerText = "Add to Cart";
                     //alert(orderdetails);
