@@ -304,7 +304,7 @@ function assignvalues() {
                 name: row.getCell(1).value,
                 age: row.getCell(2).value
             });
-        }
+        }c
         console.log(array);
     });
 }*/

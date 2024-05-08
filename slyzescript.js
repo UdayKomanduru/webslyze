@@ -101,7 +101,7 @@
             // URL Encode the final message text            
             messagetext = encodeURIComponent(messagetext);
             // Construct WhatsApp link with pre-filled message
-            var whatsappLink = "https://wa.me/919176693332?text=" + messagetext; // Replace 'whatsappphonenumber' with actual phone number
+            var whatsappLink = "https://wa.me/919398524428?text=" + messagetext; // Replace 'whatsappphonenumber' with actual phone number
             // Redirect to WhatsApp
             window.location.href = whatsappLink;
         }
