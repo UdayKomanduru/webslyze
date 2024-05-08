@@ -108,10 +108,14 @@
 
         function resetcart() {
             // Read Vegetable Table
-            const table = document.getElementById("veglist");
+            const table = document.getElementById("veglist"); 
+            // Read Table body node and get table body element 
+            const tablebody = table.childNodes[3];
+            const count = tablebody.childElementCount;
             //Reset Cart table
-            for (i = 1; i < 23; i++) {
-                // read Qty, Style cell, Add/Remove cart button from each row of the table   
+            for (i = 1; i < count; i++) {
+                // read Qty, Style cell, Add/Remove cart button from each row of the table  
+                // const qty = table.rows [i].childNodes[3];
                 const qtycell = table.rows[i].cells[3];
                 const stylecell = table.rows[i].cells[4];
                 const buttoncell = table.rows[i].cells[5];
