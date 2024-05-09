@@ -39,7 +39,7 @@ function assignvalues() {
             vegname: "tomato",
             vegtitle: "Tomato", imagename: "Tomato.png",
             weight: defaultweight,
-            price: 35,
+            price: 33,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },
@@ -47,7 +47,7 @@ function assignvalues() {
             vegname: "potato",
             vegtitle: "Potato - Peeled", imagename: "Potato.png",
             weight: defaultweight,
-            price: 32,
+            price: 38,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -55,7 +55,7 @@ function assignvalues() {
             vegname: "onion",
             vegtitle: "Onion - Peeled", imagename: "Onion.png",
             weight: defaultweight,
-            price: 45,
+            price: 35,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Fine Chopped Granules"]
         },
@@ -63,7 +63,7 @@ function assignvalues() {
             vegname: "ladiesfinger",
             vegtitle: "Ladies Finger", imagename: "Ladies_Finger.png",
             weight: defaultweight,
-            price: 32,
+            price: 38,
             quantity: ["-", "1", "2"],
             style: ["Fry Cut", "Julienne"]
         },
@@ -71,7 +71,7 @@ function assignvalues() {
             vegname: "ivygourd",
             vegtitle: "Ivy Gourd", imagename: "Ivy_Gourd.png",
             weight: defaultweight,
-            price: 34,
+            price: 35,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -79,7 +79,7 @@ function assignvalues() {
             vegname: "carrot",
             vegtitle: "Carrot - Peeled", imagename: "Carrot.png",
             weight: defaultweight,
-            price: 36,
+            price: 43,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Grated", "Julienne"]
         },
@@ -94,24 +94,24 @@ function assignvalues() {
         {
             vegname: "drumstick",
             vegtitle: "Drumstick", imagename: "Drumstick.png",
-            weight: "1 pc",
-            price: 20,
+            weight: defaultweight,
+            price: 29,
             quantity: ["-", "1", "2"],
             style: ["Julienne"]
         },
-        {
-            vegname: "greenbeans",
-            vegtitle: "Green Beans", imagename: "Green_Beans.png",
-            weight: defaultweight,
-            price: 40,
-            quantity: ["-", "1", "2"],
-            style: ["Diced", "Julienne"]
-        },
-        {
+        // {
+        //     vegname: "greenbeans",
+        //     vegtitle: "Green Beans", imagename: "Green_Beans.png",
+        //     weight: defaultweight,
+        //     price: 40,
+        //     quantity: ["-", "1", "2"],
+        //     style: ["Diced", "Julienne"]
+        // },
+         {
             vegname: "braodbeans",
             vegtitle: "Broad Beans", imagename: "Broad_Beans.png",
             weight: defaultweight,
-            price: 45,
+            price: 43,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -119,7 +119,7 @@ function assignvalues() {
             vegname: "beetroot",
             vegtitle: "Beetroot - Peeled", imagename: "Beetroot.png",
             weight: defaultweight,
-            price: 30,
+            price: 33,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne", "Grated"]
         },
@@ -127,15 +127,7 @@ function assignvalues() {
             vegname: "capsicum",
             vegtitle: "Capsicum", imagename: "Capsicum.png",
             weight: defaultweight,
-            price: 50,
-            quantity: ["-", "1", "2"],
-            style: ["Sliced", "Diced", "Julienne"]
-        },
-        {
-            vegname: "cucumber",
-            vegtitle: "Cucumber - Peeled", imagename: "Cucumber.png",
-            weight: defaultweight,
-            price: 43,
+            price: 45,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -143,40 +135,48 @@ function assignvalues() {
             vegname: "ridgegourd",
             vegtitle: "Ridge Gourd - Peeled", imagename: "Ridge_Gourd.png",
             weight: defaultweight,
-            price: 28,
+            price: 50,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
-        },
+        },        
         {
-            vegname: "bittergourd",
-            vegtitle: "Bitter Gourd", imagename: "Bitter_Gourd.png",
+            vegname: "cucumber",
+            vegtitle: "Cucumber - Peeled", imagename: "Cucumber.png",
             weight: defaultweight,
-            price: 35,
+            price: 33,
             quantity: ["-", "1", "2"],
-            style: ["Sliced", "Diced"]
+            style: ["Sliced", "Diced", "Julienne"]
         },
         {
             vegname: "bottlegourd",
             vegtitle: "Bottle Gourd", imagename: "Bottle_Gourd.png",
             weight: defaultweight,
-            price: 35,
+            price: 33,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
-        },       
-
+        }, 
         {
-            vegname: "snakegourd",
-            vegtitle: "Snake Gourd", imagename: "Snake_Gourd.png",
+            vegname: "bittergourd",
+            vegtitle: "Bitter Gourd", imagename: "Bitter_Gourd.png",
             weight: defaultweight,
-            price: 32,
+            price: 43,
             quantity: ["-", "1", "2"],
-            style: ["Diced"]
-        },
+            style: ["Sliced", "Diced"]
+        },              
+
+        // {
+        //     vegname: "snakegourd",
+        //     vegtitle: "Snake Gourd", imagename: "Snake_Gourd.png",
+        //     weight: defaultweight,
+        //     price: 32,
+        //     quantity: ["-", "1", "2"],
+        //     style: ["Diced"]
+        // },
         {
             vegname: "chowchow",
             vegtitle: "Chow Chow - Peeled", imagename: "Chow_Chow.png",
             weight: defaultweight,
-            price: 27,
+            price: 42,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
@@ -184,7 +184,7 @@ function assignvalues() {
             vegname: "yellowcucumber",
             vegtitle: "Yellow Cucumber - Peeled", imagename: "Yellow_Cucumber.png",
             weight: defaultweight,
-            price: 34,
+            price: 33,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
@@ -195,23 +195,23 @@ function assignvalues() {
             price: 20,
             quantity: ["-", "1", "2"],
             style: ["Leaves"]
-        },
-        {
-            vegname: "friedrice",
-            vegtitle: "Fried Rice Combo", imagename: "Fried_Rice.png",
-            weight: defaultweight,
-            price: 34,
-            quantity: ["-", "1", "2"],
-            style: ["Mixed Cuts"]
-        },
-        {
-            vegname: "vegsalad",
-            vegtitle: "Veg Salad Pack", imagename: "Veg_Salad.png",
-            weight: defaultweight,
-            price: 50,
-            quantity: ["-", "1", "2"],
-            style: ["Sliced"]
         }
+        // {
+        //     vegname: "friedrice",
+        //     vegtitle: "Fried Rice Combo", imagename: "Fried_Rice.png",
+        //     weight: defaultweight,
+        //     price: 34,
+        //     quantity: ["-", "1", "2"],
+        //     style: ["Mixed Cuts"]
+        // },
+        // {
+        //     vegname: "vegsalad",
+        //     vegtitle: "Veg Salad Pack", imagename: "Veg_Salad.png",
+        //     weight: defaultweight,
+        //     price: 50,
+        //     quantity: ["-", "1", "2"],
+        //     style: ["Sliced"]
+        // }
     ]
     // Get the reference of Vegetable table
     const vegtable = document.getElementById("veglist");
@@ -291,6 +291,25 @@ function assignvalues() {
         }
     }
 }
+
+
+function calcTime(offset) {
+    // create Date object for current location
+    var d = new Date();
+
+    // convert to msec
+    // subtract local time zone offset
+    // get UTC time in msec
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+    // create new Date object for different city
+    // using supplied offset
+    var nd = new Date(utc + (3600000*offset));
+
+    // return time as a string
+    return nd.toLocaleString();
+}
+
 
 /*function getExcelValues() {
     const Excel = require('exceljs');
