@@ -283,7 +283,7 @@ function assignvalues() {
 
             const buttoncell = row.insertCell();
             const cartbutton = document.createElement('button');
-            cartbutton.innerHTML = "Addto Cart";
+            cartbutton.innerHTML = "Add to Cart";
             cartbutton.addEventListener('click', () => { addVegetable(cartbutton) });
             buttoncell.appendChild(cartbutton);
 
