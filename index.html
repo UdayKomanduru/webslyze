@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Purchase - Slyze</title>
+    <!-- <title>Dynamic Test</title> -->
+    <script src="slyzevalues.js"></script>
+    <script src="slyzescript.js"></script>    
+    <link rel="stylesheet" href="slyzestyle.css">
+</head>
+
+<body>
+    <!-- <header> -->
+    <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-family='Verdana' font-size='35' fill='blue'%3ESlyze%3C/text%3E%3C/svg%3E" alt="Slyze Logo"> -->
+    <!-- </header> -->
+    <div class="container">
+        <table width="100%" border="0" id="title">
+            <tr>
+                <td align="center" width="7%"><img src="images/Logo Slyze.png" alt="Your Logo" width="30px"></td>
+                <td align="center">
+                    <!-- <h4>Fresh Cut Veggies! Delivered Home</h4>  -->
+                    <label>Fresh Cut Veggies!  Delivered Home!</label>
+                    <!-- <label>Dynamic test</label> -->
+                </td>
+                <td align="center" width="10%">
+                    <img src="images/Text Slyze.png" alt="Your Logo" width="90px">
+                    </td>
+                    <td align="center" width="5%">
+                    <img  src="images/Vegetarian.png" alt="Your Logo" width="20px">
+                </td>
+            </tr>
+        </table>
+        <!-- <p>Please enter your Name, phone number & Address. Select the vegetables, Required Quantity and Chopping Style: </p> -->
+
+        <form onsubmit="return false">
+            <table id="delslot" class="user" width="100%" border="1">
+                <tr>
+                    <td align="left">
+                        <label id="slot"></label>
+                    </td>
+                    <td colspan="2">
+                        <select id="delslot" required>
+                            <option value="06:00 AM to 07:00 AM">06:00 AM to 07:00 AM</option>
+                            <option value="08:00 AM to 09:00 AM">08:00 AM to 09:00 AM</option>
+                            <option value="10:00 AM to 11:00 AM" default>10:00 AM to 11:00 AM</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td>
+                        <label for="name">Name:</label>
+                    </td> -->
+                    <td align="left">
+                        <label>Customer Details* :</label>
+
+                    </td>
+                    <!-- <td>
+                        <label for="phone">Mobile:</label>
+                    </td> -->
+                    <td colspan="2">
+                        <input type="text" id="name" name="name" placeholder="Please Enter Name">
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" onblur="validateField(this)"
+                            placeholder="Please Enter Mobile Number">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <label for="address">Customer Address* :</label>
+                    </td>
+                    <td colspan="2">
+                        <main>
+                            <div class="wrapper">
+                                <form>
+                                    <div>
+                                        <!-- <label for="flat">Flat/House Number</label> -->
+                                        <input type="text" id="flat" name="flat" autocomplete="name" enterkeyhint="next"
+                                            placeholder="Please Enter Flat No.">
+                                    </div>
+                                    <div>
+                                        <!-- <label for="flat">Flat/House Number</label> -->
+                                        <input type="text" id="building" name="building" autocomplete="name"
+                                            enterkeyhint="next" placeholder="Please Enter Apartment/Building Name">
+                                    </div>
+                                    <div>
+                                        <!-- <label for="street-address">Street address</label> -->
+                                        <input type="text" id="street-address" name="street-address"
+                                            autocomplete="street-address" enterkeyhint="next"
+                                            placeholder="Please Enter Street"></input>
+                                    </div>
+                                    <div>
+                                        <!-- <label for="landmark">landmark (optional)</label> -->
+                                        <input type="text" class="postal-code" id="landmark" name="landmark"
+                                            autocomplete="landmark" enterkeyhint="next"
+                                            placeholder="Please Enter Landmark">
+                                    </div>
+                                </form>
+                            </div>
+                        </main>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <label>No.of Items:</label>
+                        <label id="itemcount"></label>
+                    </td>
+                    <td align="left">
+                    <br>    
+                        <label>Cart Value (Rs.):</label>
+                        <label id="itemtotal"></label>
+                    <br>    
+                        <label class="notes">;inclusive of Delivery fee</label>
+                    </td>
+                    <td vertical-align="middle">                        
+                        <!-- <button class="button" type="button" onclick="submitToWhatsApp()">Order on WhatsApp</button> -->
+                        <button type="button" onclick="submitToWhatsApp()">Order on WhatsApp</button>
+                        <!-- <img class="button" src="images/whatsapp.png" width="22"> -->
+                    <!-- </td> -->
+                    <!-- <td>     -->
+                        <button class="button" type="button" onclick="resetcart()">Reset Cart</button>
+                    </td>
+                </tr>
+            </Table>
+            <table border="1" width="100%" id="banner">
+                <tr>
+                    <td align="center">
+                        <img src="images/Veg Shape Banner.png" alt="Your Logo" width="100%">
+                    </td>
+                </tr>
+            </table>
+            <!-- <label>Vegetables:</label><br>
+            <input type="checkbox" id="vegetable1" name="vegetable" value="Carrot"> -->
+            <Table id="veglist" border="1" class="slyzecolor" table-layout="auto" width="100%">
+                <!-- Header Row    -->
+                <tr>
+                    <td align="left"><label>Vegetable</label></td>
+                    <td><label>Weight (gms.)</label></td>
+                    <td><label>Price (Rs.)</label></td>
+                    <td><label>Quantity </label></td>
+                    <td><label>Chopping Style</label></td>
+                    <td><label>Cart</label></td>
+                </tr>
+
+
+            </table>
+
+            <br>
+            <button class="submit" type="button" onclick="submitToWhatsApp()" id="order">Order on WhatsApp</button>
+            <h3 id="orderclosed"></h3>
+            <h3 id="queries"></h3>
+        </form>
+    </div>
+</body>
+
+</html>
