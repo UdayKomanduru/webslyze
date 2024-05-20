@@ -101,7 +101,7 @@ select {
 
 button {
     padding: 1px 1px;
-    height: 40px;
+    /* height: 40px; */
     background-color: #007BFF;
     /* Blue button color */
     color: #fff;
