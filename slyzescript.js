@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize closed message and closing time
 
     closedmessage = "Orders close @ 9:00 PM for next day delivery, Please place your orders before 9PM.";
+
     closingtime = '21'; 
+
     queriesmessage = "Please feel free to reach out to us on whatsapp @ +91 93985 24428 for any queries."
     //Get current Date and Time
     const curtime = new Date();
