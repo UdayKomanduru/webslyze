@@ -36,7 +36,7 @@ function assignvalues() {
 
     const vegetables = [
         {
-            vegname: "tomato ",
+            vegname: "tomato",
             vegtitle: "Tomato", imagename: "Tomato.png",
             weight: defaultweight,
             price: 47,
