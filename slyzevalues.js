@@ -12,7 +12,8 @@ function assignweight(weight_elementid, weight_value) {
 
 function assigndate() {
     let today = new Date();
-    let dd = today.getDate() + 1;
+    today.setDate(today.getDate() + 1);
+    let dd = today.getDate();
     let mmm = today.toLocaleString('default', { month: 'short' });
     //let mm = today.getMonth() + 1; //January is 0!
     let yyyy = today.getFullYear();
