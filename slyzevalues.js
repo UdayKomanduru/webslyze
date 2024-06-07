@@ -40,7 +40,7 @@ function assignvalues() {
             vegname: "tomato",
             vegtitle: "Tomato", imagename: "Tomato.png",
             weight: defaultweight,
-            price: 47,
+            price: 50,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },
@@ -80,7 +80,7 @@ function assignvalues() {
             vegname: "carrot",
             vegtitle: "Carrot - Peeled", imagename: "Carrot.png",
             weight: defaultweight,
-            price: 53,
+            price: 55,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Grated", "Julienne"]
         },
@@ -96,7 +96,7 @@ function assignvalues() {
             vegname: "drumstick",
             vegtitle: "Drumstick", imagename: "Drumstick.png",
             weight: defaultweight,
-            price: 48,
+            price: 51,
             quantity: ["-", "1", "2"],
             style: ["Julienne"]
         },
@@ -120,7 +120,7 @@ function assignvalues() {
             vegname: "beetroot",
             vegtitle: "Beetroot - Peeled", imagename: "Beetroot.png",
             weight: defaultweight,
-            price: 41,
+            price: 43,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne", "Grated"]
         },
@@ -136,7 +136,7 @@ function assignvalues() {
             vegname: "ridgegourd",
             vegtitle: "Ridge Gourd - Peeled", imagename: "Ridge_Gourd.png",
             weight: defaultweight,
-            price: 68,
+            price: 73,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },        
@@ -144,7 +144,7 @@ function assignvalues() {
             vegname: "cucumber",
             vegtitle: "Cucumber - Peeled", imagename: "Cucumber.png",
             weight: defaultweight,
-            price: 50,
+            price: 46,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -160,7 +160,7 @@ function assignvalues() {
             vegname: "bittergourd",
             vegtitle: "Bitter Gourd", imagename: "Bitter_Gourd.png",
             weight: defaultweight,
-            price: 61,
+            price: 63,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },              
@@ -177,7 +177,7 @@ function assignvalues() {
             vegname: "chowchow",
             vegtitle: "Chow Chow - Peeled", imagename: "Chow_Chow.png",
             weight: defaultweight,
-            price: 45,
+            price: 50,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
@@ -191,12 +191,21 @@ function assignvalues() {
         },
         {
             vegname: "currycoriander",
-            vegtitle: "Curry + Coriander Leaves", imagename: "Curry_Coriander.png",
+            vegtitle: "Curry Leaves & Coriander", imagename: "Curry_Coriander.png",
             weight: 50,
             price: 20,
             quantity: ["-", "1", "2"],
             style: ["Leaves"]
+        },
+        {
+            vegname: "Pudina",
+            vegtitle: "Pudina Leaves", imagename: "Pudina.png",
+            weight: 50,
+            price: 22,
+            quantity: ["-", "1", "2"],
+            style: ["Leaves"]
         }
+
         // {
         //     vegname: "friedrice",
         //     vegtitle: "Fried Rice Combo", imagename: "Fried_Rice.png",
