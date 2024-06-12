@@ -40,7 +40,7 @@ function assignvalues() {
             vegname: "tomato",
             vegtitle: "Tomato", imagename: "Tomato.png",
             weight: defaultweight,
-            price: 50,
+            price: 56,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },
@@ -56,7 +56,7 @@ function assignvalues() {
             vegname: "onion",
             vegtitle: "Onion - Peeled", imagename: "Onion.png",
             weight: defaultweight,
-            price: 46,
+            price: 60,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Fine Chopped Granules"]
         },
@@ -64,7 +64,7 @@ function assignvalues() {
             vegname: "ladiesfinger",
             vegtitle: "Ladies Finger", imagename: "Ladies_Finger.png",
             weight: defaultweight,
-            price: 49,
+            price: 61,
             quantity: ["-", "1", "2"],
             style: ["Fry Cut", "Julienne"]
         },
@@ -72,7 +72,7 @@ function assignvalues() {
             vegname: "ivygourd",
             vegtitle: "Ivy Gourd", imagename: "Ivy_Gourd.png",
             weight: defaultweight,
-            price: 43,
+            price: 54,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -80,7 +80,7 @@ function assignvalues() {
             vegname: "carrot",
             vegtitle: "Carrot - Peeled", imagename: "Carrot.png",
             weight: defaultweight,
-            price: 55,
+            price: 70,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Grated", "Julienne"]
         },
@@ -88,7 +88,7 @@ function assignvalues() {
             vegname: "cabbage",
             vegtitle: "Cabbage", imagename: "Cabbage.png",
             weight: defaultweight,
-            price: 40,
+            price: 46,
             quantity: ["-", "1", "2"],
             style: ["Grated"]
         },
@@ -96,7 +96,7 @@ function assignvalues() {
             vegname: "drumstick",
             vegtitle: "Drumstick", imagename: "Drumstick.png",
             weight: defaultweight,
-            price: 51,
+            price: 55,
             quantity: ["-", "1", "2"],
             style: ["Julienne"]
         },
@@ -112,7 +112,7 @@ function assignvalues() {
             vegname: "braodbeans",
             vegtitle: "Broad Beans", imagename: "Broad_Beans.png",
             weight: defaultweight,
-            price: 73,
+            price: 82,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -120,7 +120,7 @@ function assignvalues() {
             vegname: "beetroot",
             vegtitle: "Beetroot - Peeled", imagename: "Beetroot.png",
             weight: defaultweight,
-            price: 43,
+            price: 51,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne", "Grated"]
         },
@@ -128,7 +128,7 @@ function assignvalues() {
             vegname: "capsicum",
             vegtitle: "Capsicum", imagename: "Capsicum.png",
             weight: defaultweight,
-            price: 60,
+            price: 75,
             quantity: ["-", "1", "2"],
             style: ["Diced", "Julienne"]
         },
@@ -144,7 +144,7 @@ function assignvalues() {
             vegname: "cucumber",
             vegtitle: "Cucumber - Peeled", imagename: "Cucumber.png",
             weight: defaultweight,
-            price: 46,
+            price: 56,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -152,7 +152,7 @@ function assignvalues() {
             vegname: "bottlegourd",
             vegtitle: "Bottle Gourd", imagename: "Bottle_Gourd.png",
             weight: defaultweight,
-            price: 45,
+            price: 55,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
@@ -160,7 +160,7 @@ function assignvalues() {
             vegname: "bittergourd",
             vegtitle: "Bitter Gourd", imagename: "Bitter_Gourd.png",
             weight: defaultweight,
-            price: 63,
+            price: 75,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },              
