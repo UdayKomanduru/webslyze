@@ -192,8 +192,8 @@ function assignvalues() {
         {
             vegname: "currycoriander",
             vegtitle: "Curry Leaves & Coriander", imagename: "Curry_Coriander.png",
-            weight: 50,
-            price: 20,
+            weight: 25,
+            price: 25,
             quantity: ["-", "1", "2"],
             style: ["Leaves"]
         },
