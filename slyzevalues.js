@@ -40,7 +40,7 @@ function assignvalues() {
             vegname: "tomato",
             vegtitle: "Tomato", imagename: "Tomato.png",
             weight: defaultweight,
-            price: 83,
+            price: 72,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },
@@ -56,7 +56,7 @@ function assignvalues() {
             vegname: "onion",
             vegtitle: "Onion - Peeled", imagename: "Onion.png",
             weight: defaultweight,
-            price: 58,
+            price: 62,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Fine Chopped Granules"]
         },
@@ -64,7 +64,7 @@ function assignvalues() {
             vegname: "ladiesfinger",
             vegtitle: "Ladies Finger", imagename: "Ladies_Finger.png",
             weight: defaultweight,
-            price: 70,
+            price: 69,
             quantity: ["-", "1", "2"],
             style: ["Fry Cut", "Julienne"]
         },
@@ -72,7 +72,7 @@ function assignvalues() {
             vegname: "ivygourd",
             vegtitle: "Ivy Gourd", imagename: "Ivy_Gourd.png",
             weight: defaultweight,
-            price: 59,
+            price: 55,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne"]
         },
@@ -80,7 +80,7 @@ function assignvalues() {
             vegname: "carrot",
             vegtitle: "Carrot - Peeled", imagename: "Carrot.png",
             weight: defaultweight,
-            price: 60,
+            price: 65,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Grated", "Julienne"]
         },
@@ -96,18 +96,18 @@ function assignvalues() {
             vegname: "drumstick",
             vegtitle: "Drumstick", imagename: "Drumstick.png",
             weight: defaultweight,
-            price: 96,
+            price: 85,
             quantity: ["-", "1", "2"],
             style: ["Julienne"]
         },
-        // {
-        //     vegname: "greenbeans",
-        //     vegtitle: "Green Beans", imagename: "Green_Beans.png",
-        //     weight: defaultweight,
-        //     price: 40,
-        //     quantity: ["-", "1", "2"],
-        //     style: ["Diced", "Julienne"]
-        // },
+        {
+            vegname: "greenbeans",
+            vegtitle: "Green Beans", imagename: "Green_Beans.png",
+            weight: defaultweight,
+            price: 96,
+            quantity: ["-", "1", "2"],
+            style: ["Diced", "Julienne"]
+        },
          {
             vegname: "braodbeans",
             vegtitle: "Broad Beans", imagename: "Broad_Beans.png",
@@ -120,7 +120,7 @@ function assignvalues() {
             vegname: "beetroot",
             vegtitle: "Beetroot - Peeled", imagename: "Beetroot.png",
             weight: defaultweight,
-            price: 55,
+            price: 56,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced", "Julienne", "Grated"]
         },
@@ -136,7 +136,7 @@ function assignvalues() {
             vegname: "ridgegourd",
             vegtitle: "Ridge Gourd - Peeled", imagename: "Ridge_Gourd.png",
             weight: defaultweight,
-            price: 90,
+            price: 84,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },        
@@ -160,7 +160,7 @@ function assignvalues() {
             vegname: "bittergourd",
             vegtitle: "Bitter Gourd", imagename: "Bitter_Gourd.png",
             weight: defaultweight,
-            price: 80,
+            price: 72,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },              
