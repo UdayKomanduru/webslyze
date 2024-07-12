@@ -40,7 +40,7 @@ function assignvalues() {
             vegname: "tomato",
             vegtitle: "Tomato", imagename: "Tomato.png",
             weight: defaultweight,
-            price: 72,
+            price: 66,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },
@@ -88,7 +88,7 @@ function assignvalues() {
             vegname: "cabbage",
             vegtitle: "Cabbage", imagename: "Cabbage.png",
             weight: defaultweight,
-            price: 55,
+            price: 52,
             quantity: ["-", "1", "2"],
             style: ["Grated"]
         },
@@ -104,7 +104,7 @@ function assignvalues() {
             vegname: "greenbeans",
             vegtitle: "Green Beans", imagename: "Green_Beans.png",
             weight: defaultweight,
-            price: 96,
+            price: 87,
             quantity: ["-", "1", "2"],
             style: ["Diced", "Julienne"]
         },
@@ -128,7 +128,7 @@ function assignvalues() {
             vegname: "capsicum",
             vegtitle: "Capsicum", imagename: "Capsicum.png",
             weight: defaultweight,
-            price: 75,
+            price: 65,
             quantity: ["-", "1", "2"],
             style: ["Diced", "Julienne"]
         },
@@ -160,7 +160,7 @@ function assignvalues() {
             vegname: "bittergourd",
             vegtitle: "Bitter Gourd", imagename: "Bitter_Gourd.png",
             weight: defaultweight,
-            price: 68,
+            price: 70,
             quantity: ["-", "1", "2"],
             style: ["Sliced", "Diced"]
         },              
@@ -185,7 +185,7 @@ function assignvalues() {
             vegname: "yellowcucumber",
             vegtitle: "Yellow Cucumber - Peeled", imagename: "Yellow_Cucumber.png",
             weight: defaultweight,
-            price: 60,
+            price: 55,
             quantity: ["-", "1", "2"],
             style: ["Diced"]
         },
